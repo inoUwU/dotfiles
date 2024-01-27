@@ -1,3 +1,6 @@
+if vim.g.vscode then
+require("vscode")
+else
 require("base")
-require("colorscheme")
 require("lazy_nvim")
+end
