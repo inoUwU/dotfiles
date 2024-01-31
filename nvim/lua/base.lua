@@ -8,8 +8,14 @@ vim.opt.swapfile = false -- スワップファイルを生成しない
 vim.opt.cursorline = true -- カーソルが存在する行にハイライトを当てる
 vim.opt.cursorcolumn = false -- カーソルが存在する列にハイライトを当てる
 
+vim.g.loaded_netrw = 1 -- netrw無効
+vim.g.loaded_netrwPlugin = 1 -- netrw無効
+vim.opt.termguicolors = true -- enable 24-bit colour
+
+
 vim.opt.inccommand = "split"
 
+-- os毎の使用するshellの設定
 if vim.fn.has("win64") == 1 then
 	-- Windowsの場合
 	vim.opt.shell = "nu"
