@@ -1,1 +1,1 @@
-nnoremap <C-p> <cmd>Telescope find_files<cr>
+api.nvim_set_keymap('i', 'jk', '<esc>', { noremap = true })

@@ -38,13 +38,6 @@ return {
 	},
 	{
 		"telescope.nvim",
-		dependencies = {
-			"nvim-telescope/telescope-fzf-native.nvim",
-			build = "make",
-			config = function()
-				-- require("telescope").load_extension("fzf")
-			end,
-		},
 	},
 	{
 		"nvim-treesitter/nvim-treesitter",
@@ -53,7 +46,20 @@ return {
 			local configs = require("nvim-treesitter.configs")
 
 			configs.setup({
-				ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "elixir", "heex", "javascript", "html" },
+				ensure_installed = {
+					"c",
+					"lua",
+					"vim",
+					"vimdoc",
+					"query",
+					"rust",
+					"go",
+					"ruby",
+					"elixir",
+					"javascript",
+					"html",
+					"typescript",
+				},
 				sync_install = false,
 				highlight = { enable = true },
 				indent = { enable = true },

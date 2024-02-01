@@ -3,6 +3,7 @@ return {
 	{
 		"shaunsingh/nord.nvim",
 		lazy = false,
+		-- 全てのプラグインより先に読み込むための優先度
 		priority = 1000,
 		config = function()
 			vim.cmd([[colorscheme nord]])
