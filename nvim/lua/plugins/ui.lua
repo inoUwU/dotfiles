@@ -1,8 +1,15 @@
 return {
-	-- フローティングターミナル
+	-- ターミナル
 	{
-		"voldikss/vim-floaterm",
+		"akinsho/toggleterm.nvim",
+		config = function()
+			require("toggleterm").setup({
+				sell = "nu",
+				open_mapping = [[<c-\>]],
+			})
+		end,
 	},
+	-- ステータスライン
 	{
 		"nvim-lualine/lualine.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
