@@ -8,7 +8,7 @@ Jetpack 'junegunn/fzf', { 'do': {-> fzf#install()} }
 Jetpack 'neoclide/coc.nvim', { 'branch': 'release' }
 Jetpack 'neoclide/coc.nvim', { 'branch': 'master', 'do': 'yarn install --frozen-lockfile' }
 Jetpack 'vlime/vlime', { 'rtp': 'vim' }
-jetpack 'dracula/vim', { 'as': 'dracula' }
+Jetpack 'dracula/vim', { 'as': 'dracula' }
 Jetpack 'tpope/vim-fireplace', { 'for': 'clojure' }
 Jetpack 'preservim/nerdtree'
 Jetpack 'ryanoasis/vim-devicons'
@@ -30,7 +30,7 @@ if has('vim_starting')
 endif
 
 syntax enable
-"colorscheme dracula
+colorscheme dracula
 set encoding=UTF-8
 set number
 set cursorline
