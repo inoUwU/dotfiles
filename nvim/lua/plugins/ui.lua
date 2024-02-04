@@ -24,11 +24,25 @@ return {
 			"nvim-tree/nvim-web-devicons",
 		},
 		keys = {
+			-- TODO add focus command
+			{ "<leader>e", ":NvimTreeToggle<CR>", desc = "ファイルエクスプローラーを開く" },
 			{ "<leader>e", ":NvimTreeToggle<CR>", desc = "ファイルエクスプローラーを開く" },
 		},
 		cnd = "NvimTreeOpen",
 		config = function()
-			require("config/nvim-tree")
+			vim.g.loaded_netrw = 1
+			vim.g.loaded_netrwPlugin = 1
+			require("nvim-tree").setup({
+				sort = {
+					sorter = "case_sensitive",
+				},
+				renderer = {
+					group_empty = true,
+				},
+				filters = {
+					dotfiles = false,
+				},
+			})
 		end,
 	},
 	-- スクロールバー
