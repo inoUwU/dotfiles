@@ -113,7 +113,7 @@ return {
 						return labels
 					end
 					local function get_diagnostic_label()
-						local icons = { error = "", warn = "", info = "", hint = "" }
+						local icons = { error = "", warn = "", info = "", hint = "!" }
 						local label = {}
 
 						for severity, icon in pairs(icons) do
@@ -178,6 +178,13 @@ return {
 	-- 通知
 	{
 		"rcarriga/nvim-notify",
+		opts = {
+			timeout = 3000,
+			-- render to the bottom right
+			render = "compact",
+			stages = "fade",
+			top_down = false,
+		},
 		config = function()
 			require("notify").setup({
 				background_colour = "#000000",
