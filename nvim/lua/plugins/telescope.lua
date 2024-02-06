@@ -3,7 +3,7 @@ return {
 	branch = "0.1.x",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
-		-- windowsではscoopなどでmakeをDlする必要がある
+		-- make とripgrep をインストールする必要がある
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 		"nvim-tree/nvim-web-devicons",
 	},
