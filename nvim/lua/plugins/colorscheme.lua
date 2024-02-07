@@ -1,23 +1,23 @@
 return {
-	-- カラーテーマ
-	{
-		"shaunsingh/nord.nvim",
-		lazy = false,
-		-- 全てのプラグインより先に読み込むための優先度
-		priority = 1000,
-		config = function()
-			vim.cmd([[colorscheme nord]])
+  -- カラーテーマ
+  {
+    "shaunsingh/nord.nvim",
+    lazy = false,
+    -- 全てのプラグインより先に読み込むための優先度
+    priority = 1000,
+    config = function()
+      vim.cmd([[colorscheme nord]])
 
-			-- Example config in lua
-			vim.g.nord_contrast = true
-			vim.g.nord_borders = false
-			vim.g.nord_disable_background = true
-			vim.g.nord_italic = false
-			vim.g.nord_uniform_diff_background = true
-			vim.g.nord_bold = false
+      -- Example config in lua
+      vim.g.nord_contrast = true
+      vim.g.nord_borders = false
+      vim.g.nord_disable_background = true
+      vim.g.nord_italic = false
+      vim.g.nord_uniform_diff_background = true
+      vim.g.nord_bold = false
 
-			-- Load the colorscheme
-			require("nord").set()
-		end,
-	},
+      -- Load the colorscheme
+      require("nord").set()
+    end,
+  },
 }

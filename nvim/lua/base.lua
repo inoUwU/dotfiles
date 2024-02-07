@@ -12,26 +12,25 @@ vim.g.loaded_netrw = 1 -- netrw無効
 vim.g.loaded_netrwPlugin = 1 -- netrw無効
 vim.opt.termguicolors = true -- enable 24-bit colour
 
-
 vim.opt.inccommand = "split"
 
 -- os毎の使用するshellの設定
 if vim.fn.has("win64") == 1 then
-	-- Windowsの場合
-	vim.opt.shell = "nu"
-	vim.opt.shellcmdflag = ""
-	vim.opt.shellquote = '"'
-	vim.opt.shellxquote = ""
+  -- Windowsの場合
+  -- vim.opt.shell = "nu"
+  -- vim.opt.shellcmdflag = ""
+  -- vim.opt.shellquote = '"'
+  -- vim.opt.shellxquote = ""
 elseif vim.fn.has("mac") == 1 then
-	-- Macの場合
-	vim.opt.shell = "/bin/zsh"
-	vim.opt.shellcmdflag = "-c"
-	vim.opt.shellquote = '"'
-	vim.opt.shellxquote = ""
+  -- Macの場合
+  vim.opt.shell = "/bin/zsh"
+  vim.opt.shellcmdflag = "-c"
+  vim.opt.shellquote = '"'
+  vim.opt.shellxquote = ""
 else
-	-- Linuxの場合
-	vim.opt.shell = "/bin/bash"
-	vim.opt.shellcmdflag = "-c"
-	vim.opt.shellquote = '"'
-	vim.opt.shellxquote = ""
+  -- Linuxの場合
+  vim.opt.shell = "/bin/bash"
+  vim.opt.shellcmdflag = "-c"
+  vim.opt.shellquote = '"'
+  vim.opt.shellxquote = ""
 end

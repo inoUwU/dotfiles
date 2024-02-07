@@ -1,6 +1,6 @@
 if vim.g.vscode then
-require("vscode")
+  require("vscode")
 else
-require("base")
-require("lazy_nvim")
+  require("base")
+  require("lazy_nvim")
 end
