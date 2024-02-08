@@ -37,9 +37,6 @@ return {
     end,
   },
   {
-    "telescope.nvim",
-  },
-  {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     config = function()
@@ -65,5 +62,11 @@ return {
         indent = { enable = true },
       })
     end,
+  },
+  -- コメントアウト切り替え
+  {
+    "numToStr/Comment.nvim",
+    opts = {},
+    lazy = false,
   },
 }
