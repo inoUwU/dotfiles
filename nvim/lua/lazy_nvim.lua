@@ -11,9 +11,12 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- TODO vscodeでも使用できるプラグインを選定する
+
 require("lazy").setup({
   spec = {
     { import = "plugins" },
+    { import = "plugins.lsp" },
   },
   checker = { enabled = true }, -- automatically check for plugin update
   rtp = {
