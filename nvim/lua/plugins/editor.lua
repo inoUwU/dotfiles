@@ -62,6 +62,8 @@ return {
           "javascript",
           "html",
           "typescript",
+	  "markdown",
+	  "markdownlint",
         },
         sync_install = false,
         highlight = { enable = true },
