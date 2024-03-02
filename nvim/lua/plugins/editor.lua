@@ -63,18 +63,12 @@ return {
           "html",
           "typescript",
 	  "markdown",
-	  "markdownlint",
+	  "markdown_inline",
         },
         sync_install = false,
         highlight = { enable = true },
         indent = { enable = true },
       })
     end,
-  },
-  -- コメントアウト切り替え
-  {
-    "numToStr/Comment.nvim",
-    opts = {},
-    lazy = false,
   },
 }

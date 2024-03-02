@@ -18,6 +18,8 @@ require("lazy").setup({
     { import = "plugins" },
     { import = "plugins.lsp" },
     { import = "plugins.lang" },
+    { import = "plugins.editor" },
+    { import = "plugins.utils" },
   },
   checker = { enabled = true }, -- automatically check for plugin update
   rtp = {

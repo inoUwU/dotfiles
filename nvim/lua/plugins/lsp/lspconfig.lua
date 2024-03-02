@@ -138,7 +138,14 @@ return {
       on_attach = on_attach,
     })
 
-    -- configure python server
+    -- configure gopls server
+    lspconfig["gopls"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+      filetypes = { "go", "gomod", "gowork", "gotmpl" },
+    })
+
+    -- configure gopls server
     lspconfig["gopls"].setup({
       capabilities = capabilities,
       on_attach = on_attach,

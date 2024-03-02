@@ -1,5 +1,4 @@
 return {
-
   "andweeb/presence.nvim",
   config = function()
     -- The setup config table shows all available config options with their default values:
