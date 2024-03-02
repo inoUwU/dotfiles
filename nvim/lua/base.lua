@@ -7,6 +7,8 @@ vim.opt.clipboard = "unnamedplus" -- クリップボードとレジスタを共�
 vim.opt.swapfile = false -- スワップファイルを生成しない
 vim.opt.cursorline = true -- カーソルが存在する行にハイライトを当てる
 vim.opt.cursorcolumn = false -- カーソルが存在する列にハイライトを当てる
+vim.o.mouse = "a" -- マウスの有効化
+vim.o.signcolumn = "yes" -- アイコン列を表示する
 
 vim.g.loaded_netrw = 1 -- netrw無効
 vim.g.loaded_netrwPlugin = 1 -- netrw無効
