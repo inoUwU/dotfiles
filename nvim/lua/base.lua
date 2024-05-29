@@ -1,5 +1,6 @@
 vim.scriptencoding = "utf-8"
 
+vim.lsp.inlay_hint.enable(true)
 vim.o.visualbell = true
 vim.wo.number = true
 vim.opt.clipboard = "unnamedplus" -- クリップボードとレジスタを共有
@@ -15,10 +16,13 @@ vim.opt.termguicolors = true -- enable 24-bit colour
 
 vim.opt.inccommand = "split"
 
+-- Visual mode keymap to prevent clipboard overwrite on paste
+vim.api.nvim_set_keymap("x", "p", '"_dP', { noremap = true, silent = true })
+
 -- os毎の使用するshellの設定
 if vim.fn.has("win64") == 1 then
   -- Windowsの場合
-  -- vim.opt.shell = "nu"
+  vim.opt.shell = "nu"
   -- vim.opt.shellcmdflag = ""
   -- vim.opt.shellquote = '"'
   -- vim.opt.shellxquote = ""
