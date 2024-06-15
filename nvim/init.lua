@@ -7,9 +7,9 @@
 --  ███  ░██░░██████░░██████   ░░██   ░██ ███ ░██ ░██
 -- ░░░   ░░  ░░░░░░  ░░░░░░     ░░    ░░ ░░░  ░░  ░░
 
+require("lazy_nvim")
 if vim.g.vscode then
-  require("vscode")
+  require("vscode_setting")
 else
   require("base")
-  require("lazy_nvim")
 end

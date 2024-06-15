@@ -11,17 +11,22 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- TODO vscodeでも使用できるプラグインを選定する
-
-require("lazy").setup({
-  spec = {
+local plugins
+if vim.g.vscode then
+  -- vscodeでも使用できるプラグイン
+  plugins = { import = "plugins.utils.hop-nvim.lua" }
+else
+  plugins = {
     { import = "plugins" },
     { import = "plugins.lsp" },
     { import = "plugins.ai" },
     { import = "plugins.lang" },
     { import = "plugins.editor" },
     { import = "plugins.utils" },
-  },
+  }
+end
+
+local opts = {
   checker = { enabled = true }, -- automatically check for plugin update
   rtp = {
     disabled_plugins = {
@@ -35,4 +40,6 @@ require("lazy").setup({
       "zipPlugin",
     },
   },
-})
+}
+
+require("lazy").setup(plugins, opts)
