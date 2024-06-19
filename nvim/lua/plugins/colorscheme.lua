@@ -1,23 +1,46 @@
 return {
-  -- カラーテーマ
-  {
-    "shaunsingh/nord.nvim",
-    lazy = false,
-    -- 全てのプラグインより先に読み込むための優先度
-    priority = 1000,
-    config = function()
-      vim.cmd([[colorscheme nord]])
+  "craftzdog/solarized-osaka.nvim",
+  lazy = false,
+  priority = 1000,
+  config = function()
+    require("solarized-osaka").setup({
+      transparent = true,
+      styles = {
+        floats = "transparent",
+        sidebars = "transparent",
+      },
+      on_highlights = function(hl, c)
+        -- local prompt = "#2d3149"
+        hl.TelescopeNormal = {
+          bg = c.bg_dark,
+          fg = c.fg_dark,
+        }
+        hl.TelescopeBorder = {
+          bg = c.bg_dark,
+          fg = c.bg_dark,
+        }
+        -- hl.TelescopePromptNormal = {
+        --   bg = prompt,
+        -- }
+        -- hl.TelescopePromptBorder = {
+        --   bg = prompt,
+        --   fg = prompt,
+        -- }
+        -- hl.TelescopePromptTitle = {
+        --   bg = prompt,
+        --   fg = prompt,
+        -- }
+        hl.TelescopePreviewTitle = {
+          bg = c.bg_dark,
+          fg = c.bg_dark,
+        }
+        hl.TelescopeResultsTitle = {
+          bg = c.bg_dark,
+          fg = c.bg_dark,
+        }
+      end,
+    })
 
-      -- Example config in lua
-      vim.g.nord_contrast = true
-      vim.g.nord_borders = false
-      vim.g.nord_disable_background = true
-      vim.g.nord_italic = false
-      vim.g.nord_uniform_diff_background = true
-      vim.g.nord_bold = false
-
-      -- Load the colorscheme
-      require("nord").set()
-    end,
-  },
+    vim.cmd([[colorscheme solarized-osaka]])
+  end,
 }

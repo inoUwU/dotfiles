@@ -14,10 +14,10 @@ vim.opt.rtp:prepend(lazypath)
 local plugins
 if vim.g.vscode then
   -- vscodeでも使用できるプラグイン
-  plugins = { import = "plugins.utils.hop-nvim.lua" }
+  plugins = { import = "plugins.utils.hop-nvim" }
 else
   plugins = {
-    { import = "plugins" },
+    { import = "plugins.colorscheme" },
     { import = "plugins.lsp" },
     { import = "plugins.ai" },
     { import = "plugins.lang" },
@@ -27,6 +27,7 @@ else
 end
 
 local opts = {
+  colorscheme = "solarized-osaka",
   checker = { enabled = true }, -- automatically check for plugin update
   rtp = {
     disabled_plugins = {
