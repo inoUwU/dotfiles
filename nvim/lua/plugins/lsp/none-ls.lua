@@ -14,6 +14,7 @@ return {
 
     mason_null_ls.setup({
       ensure_installed = {
+        "biome",
         "prettier", -- prettier formatter
         "stylua", -- lua formatter
         "black", -- python formatter

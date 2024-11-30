@@ -5,6 +5,7 @@ return {
     local configs = require("nvim-treesitter.configs")
 
     configs.setup({
+      install = { "zig" },
       ensure_installed = {
         "c",
         "lua",
