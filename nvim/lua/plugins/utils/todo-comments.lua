@@ -1,25 +1,19 @@
 return {
   "folke/todo-comments.nvim",
+  event = {},
   dependencies = { "nvim-lua/plenary.nvim" },
-  opts = {
-    -- your configuration comes here
-    -- or leave it empty to use the default settings
-    -- refer to the configuration section below
-  },
   config = function()
-    require("todo-comments").setup({
-      keywords = {
-        FIX = {
-          icon = "", -- icon used for the sign, and in search results
-          color = "error", -- can be a hex color, or a named color (see below)
-          alt = { "FIXME", "BUG", "FIXIT", "ISSUE" }, -- a set of other keywords that all map to this FIX keywords
-          -- signs = false, -- configure signs for some keywords individually
-        },
-        TODO = { icon = "", color = "info" },
-        HACK = { icon = "", color = "warning" },
-        WARN = { icon = "", color = "warning", alt = { "WARNING", "XXX" } },
-        NOTE = { icon = "󰎚", color = "hint", alt = { "INFO" } },
-      },
-    })
+    local todo_comments = require("todo-comments")
+    -- set keymaps
+    local keymap = vim.keymap
+    keymap.set("n", "]t", function()
+      todo_comments.jump_next()
+    end, { desc = "Jump to next todo comment" })
+
+    keymap.set("n", "[t", function()
+      todo_comments.jump_prev()
+    end, { desc = "Jump to previous todo comment" })
+
+    todo_comments.setup()
   end,
 }
