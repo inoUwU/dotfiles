@@ -1,16 +1,17 @@
+-- Lightweight yet powerful formatter plugin for Neovim
+-- TODO: Setup This plugin
 return {
   "stevearc/conform.nvim",
   event = { "BufWritePre" },
   cmd = { "ConformInfo" },
   keys = {
     {
-      -- Customize or remove this keymap to your liking
-      "<leader>f",
+      "<leader>mp",
       function()
         require("conform").format({ async = true, lsp_fallback = true })
       end,
-      mode = "",
-      desc = "Format buffer",
+      mode = "n",
+      desc = "Format file",
     },
   },
   -- Everything in opts will be passed to setup()
