@@ -1,10 +1,12 @@
 #!/bin/bash
-
 # dotfilesのルートディレクトリ
 DOTFILES_DIR="$HOME/dotfiles"
 
 # Neovimの設定ファイルのパス
 NEOVIM_CONFIG_DIR="$HOME/.config/nvim"
+
+# StarShipの設定ファイルのパス
+STARSHIP_CONFIG_DIR="$HOME/.config/starship.toml"
 
 # シンボリックリンクを作成する関数
 create_symlink() {
@@ -29,6 +31,9 @@ create_symlink() {
     fi
 }
 
-# 実行例: Neovimの設定をリンク
+# Neovimの設定をリンク
 create_symlink "nvim" "$NEOVIM_CONFIG_DIR"
+
+# StarShipの設定をリンク
+create_symlink "starship.toml" "$STARSHIP_CONFIG_DIR"
 
