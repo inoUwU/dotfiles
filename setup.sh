@@ -8,6 +8,9 @@ NEOVIM_CONFIG_DIR="$HOME/.config/nvim"
 # StarShipの設定ファイルのパス
 STARSHIP_CONFIG_DIR="$HOME/.config/starship.toml"
 
+# Ghosttyの設定ファイルのパス
+GHOSTTY_CONFIG_PATH="$HOME/.config/ghostty" 
+
 # シンボリックリンクを作成する関数
 create_symlink() {
     src="$1"
@@ -36,4 +39,9 @@ create_symlink "nvim" "$NEOVIM_CONFIG_DIR"
 
 # StarShipの設定をリンク
 create_symlink "starship.toml" "$STARSHIP_CONFIG_DIR"
+
+# Ghosttyの設定をリンク
+create_symlink "ghostty" "$GHOSTTY_CONFIG_PATH"
+
+
 
