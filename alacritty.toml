@@ -1,0 +1,20 @@
+[env]
+TERM = "alacritty"
+
+[font.normal]
+family = "MesloLGM Nerd Font"
+style = "Regular"
+
+[terminal.shell]
+#args = ["tmux a -t default || tmux new -s default"]
+program = "/Windows/System32/wsl.exe ~ -d Ubuntu-24.04"
+
+[window]
+dynamic_padding = true
+opacity = 0.95
+
+[window.padding]
+x = 6
+y = 6
+
+[terminal]
