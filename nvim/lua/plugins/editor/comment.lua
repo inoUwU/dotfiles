@@ -1,8 +1,6 @@
+-- コメントアウト切り替え
 return {
-  -- コメントアウト切り替え
-  {
-    "numToStr/Comment.nvim",
-    opts = {},
-    lazy = false,
-  },
+  "numToStr/Comment.nvim",
+  opts = {},
+  lazy = false,
 }
