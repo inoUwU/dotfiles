@@ -19,7 +19,8 @@ return {
   },
   config = function()
     local picker = require("snacks.picker")
-    local zen = require("snacks.zen")
+    -- TODO　色は変わらなくていい
+    local snacks = require("snacks")
     local keymap = vim.keymap -- for conciseness
 
     local function get_text()
@@ -47,7 +48,10 @@ return {
       picker.colorschemes()
     end, { desc = "Find colortheme" })
     keymap.set("n", "<leader>wz", function()
-      zen.zen()
+      snacks.zen.zen()
     end, { desc = "Toggle zen mode" })
+    keymap.set("n", "<leader>wg", function()
+      snacks.lazygit.open()
+    end, { desc = "Open lazygit" })
   end,
 }
