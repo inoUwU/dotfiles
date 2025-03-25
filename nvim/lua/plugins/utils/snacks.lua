@@ -14,8 +14,19 @@ return {
     terminal = { enabled = true },
     image = { enabled = true },
     scroll = { enabled = true },
-    zen = { enabled = true },
+    zen = {
+      enabled = true,
+      toggles = {
+        ufo = true,
+        dim = true,
+        git_signs = true,
+        diagnostics = true,
+        line_number = true,
+        relative_number = true,
+      },
+    },
     picker = { enabled = true },
+    dashboard = { enabled = true },
   },
   config = function()
     local picker = require("snacks.picker")
