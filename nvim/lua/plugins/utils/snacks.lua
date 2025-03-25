@@ -14,6 +14,7 @@ return {
     terminal = { enabled = true },
     image = { enabled = true },
     scroll = { enabled = true },
+    toggle = { enabled = true },
     zen = {
       enabled = true,
       toggles = {
@@ -26,10 +27,11 @@ return {
       },
     },
     picker = { enabled = true },
-    dashboard = { enabled = true },
+    dashboard = { example = "doom" },
   },
   config = function()
     local picker = require("snacks.picker")
+
     -- TODO　色は変わらなくていい
     local snacks = require("snacks")
     local keymap = vim.keymap -- for conciseness
@@ -61,7 +63,7 @@ return {
     keymap.set("n", "<leader>wz", function()
       snacks.zen.zen()
     end, { desc = "Toggle zen mode" })
-    keymap.set("n", "<leader>wg", function()
+    keymap.set("n", "<leader>wl", function()
       snacks.lazygit.open()
     end, { desc = "Open lazygit" })
   end,
