@@ -18,6 +18,6 @@ return {
           showkeys.toggle()
         end,
       })
-      :map("<leader>uk")
+      :map("<leader>wk")
   end,
 }

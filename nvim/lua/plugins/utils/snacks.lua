@@ -60,9 +60,11 @@ return {
     keymap.set("n", "<leader>fc", function()
       picker.colorschemes()
     end, { desc = "Find colortheme" })
-    keymap.set("n", "<leader>wz", function()
-      snacks.zen.zen()
-    end, { desc = "Toggle zen mode" })
+
+    snacks.toggle.diagnostics():map("<leader>wd")
+    snacks.toggle.zen():map("<leader>wz")
+    snacks.toggle.inlay_hints():map("<leader>wi")
+
     keymap.set("n", "<leader>wl", function()
       snacks.lazygit.open()
     end, { desc = "Open lazygit" })
