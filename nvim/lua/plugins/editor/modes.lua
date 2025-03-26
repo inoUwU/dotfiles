@@ -23,10 +23,6 @@ return {
 
       -- Enable line number highlights to match cursorline
       set_number = true,
-
-      -- Disable modes highlights in specified filetypes
-      -- Please PR commonly ignored filetypes
-      ignore_filetypes = { "NvimTree", "TelescopePrompt" },
     })
   end,
 }
