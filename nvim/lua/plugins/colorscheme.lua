@@ -40,5 +40,7 @@ return {
         }
       end,
     })
+
+    vim.cmd([[colorscheme solarized-osaka]])
   end,
 }
