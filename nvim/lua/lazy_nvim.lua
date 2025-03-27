@@ -20,7 +20,6 @@ else
     { import = "plugins.debug" },
     { import = "plugins.colorscheme" },
     { import = "plugins.lsp" },
-    { import = "plugins.ai" },
     { import = "plugins.lang" },
     { import = "plugins.window" },
     { import = "plugins.editor" },
