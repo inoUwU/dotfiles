@@ -61,6 +61,10 @@ return {
       picker.colorschemes()
     end, { desc = "Find colortheme" })
 
+    keymap.set("n", "<C-p>", function()
+      picker.commands()
+    end, { desc = "Show commands" })
+
     snacks.toggle.diagnostics():map("<leader>wd")
     snacks.toggle.zen():map("<leader>wz")
     snacks.toggle.inlay_hints():map("<leader>wi")
