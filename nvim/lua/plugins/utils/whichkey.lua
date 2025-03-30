@@ -20,5 +20,10 @@ return {
       function() end,
       desc = "Picker",
     },
+    {
+      "<leader>j",
+      function() end,
+      desc = "Jump",
+    },
   },
 }
