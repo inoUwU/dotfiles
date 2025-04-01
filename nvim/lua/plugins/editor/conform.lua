@@ -6,7 +6,7 @@ return {
   cmd = { "ConformInfo" },
   keys = {
     {
-      "<leader>mp",
+      "<leader>bf",
       function()
         require("conform").format({ async = true, lsp_fallback = true })
       end,
@@ -27,6 +27,7 @@ return {
       json = { "prettierd", "prettier" },
       html = { "prettierd", "prettier" },
       yaml = { "prettierd", "prettier" },
+      yml = { "prettierd", "prettier" },
       css = { "prettierd", "prettier" },
     },
     -- Set up format-on-save
