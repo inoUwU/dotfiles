@@ -7,6 +7,7 @@ return {
   },
   config = function()
     local lspconfig = require("lspconfig")
+    local util = require("lspconfig.util")
     local keymap = vim.keymap -- for conciseness
     local opts = { noremap = true, silent = true }
     local on_attach = function(client, bufnr)
@@ -82,6 +83,17 @@ return {
     lspconfig["gopls"].setup({
       on_attach = on_attach,
       filetypes = { "go", "gomod", "gowork", "gotmpl" },
+    })
+    lspconfig["yamlls"].setup({
+      on_attach = on_attach,
+      filetypes = { "yaml", "yml" },
+    })
+
+    lspconfig.gh_actions_ls.setup({
+      on_attach = on_attach,
+      filetypes = { "yaml.github" },
+      root_dir = util.root_pattern(".github"),
+      single_file_support = true,
     })
 
     -- configure lua server (with special settings)
