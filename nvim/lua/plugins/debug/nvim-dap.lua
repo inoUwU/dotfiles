@@ -4,11 +4,11 @@ return {
   desc = "Debugging support. Requires language specific adapters to be configured. (see lang extras)",
 
   dependencies = {
-    -- virtual text for the debugger
     {
       "theHamsta/nvim-dap-virtual-text",
       opts = {},
     },
+    { "igorlfs/nvim-dap-view", opts = {} },
   },
 
   -- stylua: ignore
