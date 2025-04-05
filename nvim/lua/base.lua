@@ -14,25 +14,20 @@ vim.opt.termguicolors = true -- enable 24-bit colour
 vim.opt.inccommand = "split"
 vim.api.nvim_set_keymap("x", "p", '"_dP', { noremap = true, silent = true }) -- Visual mode keymap to prevent clipboard overwrite on paste
 
+vim.opt.shellcmdflag = "-c"
+vim.opt.shellquote = '"'
+vim.opt.shellxquote = ""
+
 -- os毎の使用するshellの設定
 if vim.fn.has("win64") == 1 then
   -- Windowsの場合
   local home = os.getenv("USERPROFILE") or "C:\\Users\\Default"
   vim.opt.shell = home .. "\\AppData\\Local\\nu\\bin\\nu.exe"
   vim.opt.shell = "nu"
-  -- vim.opt.shellcmdflag = ""
-  -- vim.opt.shellquote = '"'
-  -- vim.opt.shellxquote = ""
 elseif vim.fn.has("mac") == 1 then
   -- Macの場合
   vim.opt.shell = "/bin/zsh"
-  vim.opt.shellcmdflag = "-c"
-  vim.opt.shellquote = '"'
-  vim.opt.shellxquote = ""
 else
   -- Linuxの場合
   vim.opt.shell = "/bin/bash"
-  vim.opt.shellcmdflag = "-c"
-  vim.opt.shellquote = '"'
-  vim.opt.shellxquote = ""
 end
