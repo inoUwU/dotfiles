@@ -17,6 +17,8 @@ vim.api.nvim_set_keymap("x", "p", '"_dP', { noremap = true, silent = true }) -- 
 -- os毎の使用するshellの設定
 if vim.fn.has("win64") == 1 then
   -- Windowsの場合
+  local home = os.getenv("USERPROFILE") or "C:\\Users\\Default"
+  vim.opt.shell = home .. "\\AppData\\Local\\nu\\bin\\nu.exe"
   vim.opt.shell = "nu"
   -- vim.opt.shellcmdflag = ""
   -- vim.opt.shellquote = '"'
