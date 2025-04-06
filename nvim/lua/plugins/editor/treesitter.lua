@@ -21,6 +21,7 @@ return {
         "markdown",
         "markdown_inline",
         "yaml",
+        "gleam",
       },
       sync_install = false,
       highlight = { enable = true },

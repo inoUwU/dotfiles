@@ -96,6 +96,10 @@ return {
       single_file_support = true,
     })
 
+    lspconfig.gleam.setup({
+      on_attach = on_attach,
+    })
+
     -- configure lua server (with special settings)
     lspconfig["lua_ls"].setup({
       on_attach = on_attach,
