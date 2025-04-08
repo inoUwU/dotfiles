@@ -61,6 +61,10 @@ return {
       picker.colorschemes()
     end, { desc = "Find colortheme" })
 
+    keymap.set("n", "<leader>fb", function()
+      picker.buffers()
+    end, { desc = "Find buffers" })
+
     keymap.set("n", "<C-p>", function()
       picker.commands()
     end, { desc = "Show commands" })
