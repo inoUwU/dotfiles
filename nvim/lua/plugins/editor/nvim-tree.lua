@@ -5,8 +5,8 @@ return {
   },
   -- stylua: ignore
   keys = {
-    {"<C-n>",":NvimTreeFocus<CR>",mode = "n",silent = true,desc = "ファイルエクスプローラーにフォーカスする"},
-    { "<leader>e", ":NvimTreeToggle<CR>", silent = true, desc = "ファイルエクスプローラーを開く" },
+    {"<C-n>",":NvimTreeFocus<CR>",mode = "n",silent = true,desc = "Focus File Explorer"},
+    { "<leader>e", ":NvimTreeToggle<CR>", silent = true, desc = "Open File Explorer" },
   },
   cnd = "NvimTreeOpen",
   config = function()
