@@ -38,8 +38,11 @@
     pkgs.fastfetch
     pkgs.zsh
     pkgs.go
+    pkgs.bun 
+    pkgs.nodejs_22
     pkgs.starship
     pkgs.tmux
+    pkgs.lazygit
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
