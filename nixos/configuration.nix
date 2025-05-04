@@ -115,6 +115,7 @@
     spotify
     discord
     alacritty
+    zed-editor
   ];
 
   fonts.fontDir.enable = true;
