@@ -98,6 +98,27 @@
 
   # Install firefox.
   programs.firefox.enable = true;
+  
+  # Install hyprland
+  programs.hyprland = {
+    enable = true;
+    # nvidiaPatches = true;
+    xwayland.enable = true;
+  };
+   
+  environment.sessionVariables = {
+    # If your cursor becomes invisible 
+    WLR_NO_HARDWARE_CURSORS = "1";
+    # Hint electron apps to use wayland
+    NIXOS_OZONE_WL = "1";
+  };
+
+  hardware = {
+   # Opengl
+   opengl.enable = true;
+   # Most wayland compositors need this
+   nvidia.modesetting.enable = true;
+  };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -116,6 +137,12 @@
     discord
     alacritty
     zed-editor
+   
+    swww
+    rofi-wayland
+    kitty
+    waybar
+    eww
   ];
 
   fonts.fontDir.enable = true;
@@ -131,6 +158,8 @@
     proggyfonts
     (nerdfonts.override { fonts = [ "Meslo" ]; })
   ];
+
+  #  services.xserver.videoDrivers = [ "nvidia" ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

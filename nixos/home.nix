@@ -43,6 +43,8 @@
     pkgs.starship
     pkgs.tmux
     pkgs.lazygit
+    pkgs.ladybird
+    pkgs.bluetuith 
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
