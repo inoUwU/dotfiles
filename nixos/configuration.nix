@@ -38,9 +38,7 @@
     LC_MONETARY = "ja_JP.UTF-8";
     LC_NAME = "ja_JP.UTF-8";
     LC_NUMERIC = "ja_JP.UTF-8";
-    LC_PAPER = "ja_JP.UTF-8";
-    LC_TELEPHONE = "ja_JP.UTF-8";
-    LC_TIME = "ja_JP.UTF-8";
+    LC_PAPER = "ja_JP.UTF-8"; LC_TELEPHONE = "ja_JP.UTF-8"; LC_TIME = "ja_JP.UTF-8";
   };
 
   i18n.inputMethod = {
@@ -116,12 +114,22 @@
   hardware = {
    # Opengl
    opengl.enable = true;
+  };
+
+  # enable gpu powerrrrrrr
+  services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.nvidia = {
    # Most wayland compositors need this
-   nvidia.modesetting.enable = true;
+    modesetting.enable = true;
+    powerManagement.enable = true;
+    powerManagement.finegrained = false;
+    open = false; # オープンソース版ドライバを使いたいなら true にする（ただしGTX 10xx は非対応）
+    nvidiaSettings = true; # NVIDIA Settings GUIを有効にする
+    package = config.boot.kernelPackages.nvidiaPackages.stable; # install latest stable driver
   };
 
   # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnfree = true; # NVIDIAのドライバはUnfree
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -159,16 +167,7 @@
     (nerdfonts.override { fonts = [ "Meslo" ]; })
   ];
 
-  #  services.xserver.videoDrivers = [ "nvidia" ];
-
   # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
