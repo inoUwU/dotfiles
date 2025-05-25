@@ -13,6 +13,9 @@ vim.g.loaded_netrwPlugin = 1 -- netrw無効
 vim.opt.termguicolors = true -- enable 24-bit colour
 vim.opt.inccommand = "split"
 vim.api.nvim_set_keymap("x", "p", '"_dP', { noremap = true, silent = true }) -- Visual mode keymap to prevent clipboard overwrite on paste
+vim.opt.spelllang = { "en", "cjk" } -- spellcheck
+vim.opt.fillchars = { eob = " " } -- ファイル末尾以降の`~`の表示を削除
+-- vim.opt.fillchars:append({ eob = "‖" })
 
 vim.opt.shellcmdflag = "-c"
 vim.opt.shellquote = '"'
