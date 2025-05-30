@@ -79,8 +79,8 @@ return {
     local use_biome = has_file({ "biome.json" })
 
     lint.linters_by_ft = {
-      typescript = use_biome and { "biome" } or { "eslint_d" },
-      javascript = use_biome and { "biome" } or { "eslint_d" },
+      typescript = { "biome" } or { "eslint_d" },
+      javascript = { "biome" } or { "eslint_d" },
       typescriptreact = use_biome and { "biome" } or { "eslint_d" },
       javascriptreact = use_biome and { "biome" } or { "eslint_d" },
       json = use_biome and { "biome" } or {},

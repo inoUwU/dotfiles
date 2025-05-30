@@ -31,9 +31,6 @@ return {
     lspconfig["html"].setup({
       on_attach = on_attach,
     })
-    lspconfig["ts_ls"].setup({
-      on_attach = on_attach,
-    })
     lspconfig["cssls"].setup({
       on_attach = on_attach,
     })
