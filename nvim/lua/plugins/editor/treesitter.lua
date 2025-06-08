@@ -8,6 +8,8 @@ return {
       install = { "zig" },
       ensure_installed = {
         "c",
+        "cpp",
+        "tsx",
         "lua",
         "vim",
         "vimdoc",
