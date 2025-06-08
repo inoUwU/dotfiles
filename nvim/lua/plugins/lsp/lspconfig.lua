@@ -24,6 +24,17 @@ return {
       keymap.set("n", "<leader>ll", vim.diagnostic.open_float, opts)
     end
 
+    -- C/C++ clangd用の専用on_attach
+    local function on_attach_clangd(client, bufnr)
+      on_attach(client, bufnr)
+      keymap.set(
+        "n",
+        "<leader>ch",
+        "<cmd>ClangdSwitchSourceHeader<cr>",
+        vim.tbl_extend("force", base_opts, { buffer = bufnr, desc = "Switch Source/Header (C/C++)" })
+      )
+    end
+
     local servers = {
       html = {},
       cssls = {},
@@ -76,19 +87,74 @@ return {
           })
         end,
       },
+      -- === C/C++ clangd (追加設定) ===
+      clangd = {
+        on_attach = on_attach_clangd,
+        root_dir = function(fname)
+          return util.root_pattern(
+            "Makefile",
+            "configure.ac",
+            "configure.in",
+            "config.h.in",
+            "meson.build",
+            "meson_options.txt",
+            "build.ninja"
+          )(fname) or util.root_pattern("compile_commands.json", "compile_flags.txt")(fname) or util.find_git_ancestor(
+            fname
+          )
+        end,
+        capabilities = {
+          offsetEncoding = { "utf-16" },
+        },
+        cmd = {
+          "clangd",
+          "--background-index",
+          "--clang-tidy",
+          "--header-insertion=iwyu",
+          "--completion-style=detailed",
+          "--function-arg-placeholders",
+          "--fallback-style=llvm",
+        },
+        init_options = {
+          usePlaceholders = true,
+          completeUnimported = true,
+          clangdFileStatus = true,
+        },
+      },
     }
 
-    -- Set diagnostic signs
+    -- Diagnostic signs
     local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
     for type, icon in pairs(signs) do
       local hl = "DiagnosticSign" .. type
       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
     end
 
+    -- clangd_extensions.nvimを利用する場合の拡張セットアップ
+    local function setup_clangd_with_extensions(config)
+      local ok, clangd_ext = pcall(require, "clangd_extensions")
+      if ok then
+        local LazyVim_ok, LazyVim = pcall(require, "lazyvim")
+        -- clangd_extensions.nvimのオプションを取得、マージ
+        local clangd_ext_opts = (LazyVim_ok and LazyVim.opts and LazyVim.opts("clangd_extensions.nvim")) or {}
+        clangd_ext.setup(vim.tbl_deep_extend("force", clangd_ext_opts or {}, { server = config }))
+        return true
+      end
+      return false
+    end
+
     -- Setup all language servers
     for server, config in pairs(servers) do
-      config.on_attach = config.on_attach or on_attach
-      lspconfig[server].setup(config)
+      -- clangdはclangd_extensionsを優先利用
+      if server == "clangd" then
+        if not setup_clangd_with_extensions(config) then
+          config.on_attach = config.on_attach or on_attach
+          lspconfig[server].setup(config)
+        end
+      else
+        config.on_attach = config.on_attach or on_attach
+        lspconfig[server].setup(config)
+      end
     end
   end,
 }
