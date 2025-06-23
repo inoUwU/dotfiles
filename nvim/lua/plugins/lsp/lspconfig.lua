@@ -42,9 +42,6 @@ return {
       prismals = {},
       pyright = {},
       gleam = {},
-      gopls = {
-        filetypes = { "go", "gomod", "gowork", "gotmpl" },
-      },
       yamlls = {
         filetypes = { "yaml", "yml" },
       },
