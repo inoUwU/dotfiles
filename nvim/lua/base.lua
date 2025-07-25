@@ -2,6 +2,7 @@ vim.scriptencoding = "utf-8"
 vim.lsp.inlay_hint.enable(true)
 vim.o.visualbell = true
 vim.wo.number = true
+vim.opt.relativenumber = true
 vim.opt.clipboard = "unnamedplus" -- クリップボードとレジスタを共有
 vim.opt.swapfile = false -- スワップファイルを生成しない
 vim.opt.cursorline = true -- カーソルが存在する行にハイライトを当てる
