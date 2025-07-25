@@ -120,13 +120,6 @@ return {
       },
     }
 
-    -- Diagnostic signs
-    local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
-    for type, icon in pairs(signs) do
-      local hl = "DiagnosticSign" .. type
-      vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-    end
-
     -- clangd_extensions.nvimを利用する場合の拡張セットアップ
     local function setup_clangd_with_extensions(config)
       local ok, clangd_ext = pcall(require, "clangd_extensions")
