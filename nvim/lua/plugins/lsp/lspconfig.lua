@@ -84,7 +84,6 @@ return {
           })
         end,
       },
-      -- === C/C++ clangd (追加設定) ===
       clangd = {
         on_attach = on_attach_clangd,
         root_dir = function(fname)
@@ -118,6 +117,7 @@ return {
           clangdFileStatus = true,
         },
       },
+      elmls = {},
     }
 
     -- clangd_extensions.nvimを利用する場合の拡張セットアップ

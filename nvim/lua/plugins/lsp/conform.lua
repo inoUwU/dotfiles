@@ -38,7 +38,7 @@ return {
       lua = { "stylua" }, -- Lua ファイル用のフォーマッター
       -- Python ファイルには isort (importの並べ替え) を優先し、black (コードフォーマット) を使用
       python = { "isort", "black" },
-      -- その他のファイルタイプもここに追加できます
+      elm = { "elm_format" },
     },
     -- ファイル保存時に自動フォーマットを有効にする
     format_on_save = {
