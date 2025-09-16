@@ -1,4 +1,4 @@
-theme = catppuccin-mocha
+#disable  theme = catppuccin-mocha
 window-padding-x = 10
 window-padding-y = 5
 window-padding-balance = true
