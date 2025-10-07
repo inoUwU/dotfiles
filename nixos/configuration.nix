@@ -150,6 +150,7 @@
     rofi-wayland
     kitty
     waybar
+    hyprpaper
     eww
   ];
 
