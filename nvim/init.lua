@@ -32,3 +32,21 @@ vim.api.nvim_create_autocmd("FileType", {
     print("GitHub Actions YAML file detected!")
   end,
 })
+
+-- Diagnostic signs
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function()
+    local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
+    vim.diagnostic.config({
+      virtual_text = true,
+      signs = {
+        text = {
+          [vim.diagnostic.severity.ERROR] = signs.Error,
+          [vim.diagnostic.severity.WARN] = signs.Warn,
+          [vim.diagnostic.severity.INFO] = signs.Info,
+          [vim.diagnostic.severity.HINT] = signs.Hint,
+        },
+      },
+    })
+  end,
+})

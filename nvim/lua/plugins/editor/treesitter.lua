@@ -8,6 +8,8 @@ return {
       install = { "zig" },
       ensure_installed = {
         "c",
+        "cpp",
+        "tsx",
         "lua",
         "vim",
         "vimdoc",
@@ -22,6 +24,7 @@ return {
         "markdown_inline",
         "yaml",
         "gleam",
+        "elm",
       },
       sync_install = false,
       highlight = { enable = true },

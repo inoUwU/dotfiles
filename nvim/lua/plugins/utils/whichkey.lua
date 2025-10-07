@@ -45,5 +45,10 @@ return {
       function() end,
       desc = "Window",
     },
+    {
+      "<leader>a",
+      function() end,
+      desc = "avante",
+    },
   },
 }

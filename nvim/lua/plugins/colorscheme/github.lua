@@ -1,6 +1,4 @@
 return {
-  {
-    "projekt0n/github-nvim-theme",
-    lazy = false,
-  },
+  "projekt0n/github-nvim-theme",
+  lazy = false,
 }
