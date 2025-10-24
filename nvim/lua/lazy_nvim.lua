@@ -24,7 +24,6 @@ else
     { import = "plugins.lsp" },
     { import = "plugins.lang" },
     { import = "plugins.editor" },
-    { import = "plugins.utils" },
   }
 end
 
