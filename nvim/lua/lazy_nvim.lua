@@ -17,12 +17,12 @@ if vim.g.vscode then
   plugins = { import = "plugins.utils.hop-nvim" }
 else
   plugins = {
+    { import = "plugins" },
     { import = "plugins.ai" },
     { import = "plugins.debug" },
     { import = "plugins.colorscheme" },
     { import = "plugins.lsp" },
     { import = "plugins.lang" },
-    { import = "plugins.window" },
     { import = "plugins.editor" },
     { import = "plugins.utils" },
   }
