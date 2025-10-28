@@ -4,7 +4,8 @@ return {
     opts = {
       -- list of servers for mason to install
       ensure_installed = {
-        "ts_ls",
+        "rust_analyzer",
+        "vtsls",
         "html",
         "cssls",
         "tailwindcss",
@@ -27,6 +28,19 @@ return {
         },
       },
       "neovim/nvim-lspconfig",
+      opts = {
+        servers = {
+          rust_analyzer = {
+            enabled = false,
+          },
+          tsserver = {
+            enabled = false,
+          },
+          ts_ls = {
+            enabled = false,
+          },
+        },
+      },
     },
   },
   {
