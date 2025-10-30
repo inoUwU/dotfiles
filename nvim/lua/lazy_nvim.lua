@@ -27,7 +27,6 @@ else
 end
 
 local opts = {
-  colorscheme = "solarized-osaka",
   checker = { enabled = true }, -- automatically check for plugin update
   rtp = {
     disabled_plugins = {
