@@ -29,15 +29,10 @@ return {
       },
       "neovim/nvim-lspconfig",
       opts = {
-        servers = {
-          rust_analyzer = {
-            enabled = false,
-          },
-          tsserver = {
-            enabled = false,
-          },
-          ts_ls = {
-            enabled = false,
+        automatic_enable = {
+          exclude = {
+            "rust_analyzer",
+            "ts_ls",
           },
         },
       },
