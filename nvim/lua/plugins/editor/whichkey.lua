@@ -50,5 +50,10 @@ return {
       function() end,
       desc = "avante",
     },
+    {
+      "<leader>s",
+      function() end,
+      desc = "sidekick",
+    },
   },
 }

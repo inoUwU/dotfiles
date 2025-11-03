@@ -19,13 +19,19 @@ vim.filetype.add({
     [".*/%.github[%w/]+workflows[%w/]+.*%.ya?ml"] = "yaml.github",
   },
 })
+
+require("lsp")
 require("lazy_nvim")
+
+local theme = require("last-color").recall() or "yoda"
+vim.cmd.colorscheme(theme)
+
 vim.api.nvim_create_autocmd("VimEnter", {
   callback = function()
     require("snacks").dashboard.setup()
   end,
 })
--- init.luaまたはlsp-config.luaの適切な場所に追加
+
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "yaml.github",
   callback = function()
@@ -33,20 +39,11 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
--- Diagnostic signs
-vim.api.nvim_create_autocmd("LspAttach", {
-  callback = function()
-    local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
-    vim.diagnostic.config({
-      virtual_text = true,
-      signs = {
-        text = {
-          [vim.diagnostic.severity.ERROR] = signs.Error,
-          [vim.diagnostic.severity.WARN] = signs.Warn,
-          [vim.diagnostic.severity.INFO] = signs.Info,
-          [vim.diagnostic.severity.HINT] = signs.Hint,
-        },
-      },
-    })
+vim.api.nvim_create_autocmd("FileType", {
+  group = vim.api.nvim_create_augroup("vim-treesitter-start", {}),
+  callback = function(ctx)
+    -- 必要に応じて`ctx.match`に入っているファイルタイプの値に応じて挙動を制御
+    -- `pcall`でエラーを無視することでパーサーやクエリがあるか気にしなくてすむ
+    pcall(vim.treesitter.start)
   end,
 })

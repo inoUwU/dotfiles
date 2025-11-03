@@ -4,7 +4,6 @@ return {
   event = { "InsertEnter", "CmdLineEnter" },
   dependencies = {
     "rafamadriz/friendly-snippets",
-    "L3MON4D3/LuaSnip",
   },
   opts_extend = { "sources.default" },
   opts = {

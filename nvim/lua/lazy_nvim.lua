@@ -22,14 +22,11 @@ else
     { import = "plugins.colorscheme" },
     { import = "plugins.lsp" },
     { import = "plugins.lang" },
-    { import = "plugins.window" },
     { import = "plugins.editor" },
-    { import = "plugins.utils" },
   }
 end
 
 local opts = {
-  colorscheme = "solarized-osaka",
   checker = { enabled = true }, -- automatically check for plugin update
   rtp = {
     disabled_plugins = {

@@ -1,6 +1,6 @@
 #disable  theme = catppuccin-mocha
-window-padding-x = 10
-window-padding-y = 5
+window-padding-x = 0
+window-padding-y = 0
 window-padding-balance = true
 window-theme = ghostty
 background-opacity = 0.9
