@@ -39,7 +39,7 @@
     pkgs.zsh
     pkgs.go
     pkgs.bun 
-    pkgs.nodejs_22
+    pkgs.nodejs_24
     pkgs.starship
     pkgs.tmux
     pkgs.lazygit
