@@ -4,7 +4,6 @@ return {
     opts = {
       -- list of servers for mason to install
       ensure_installed = {
-        "rust_analyzer",
         "vtsls",
         "html",
         "cssls",
@@ -29,10 +28,11 @@ return {
       },
       "neovim/nvim-lspconfig",
       opts = {
-        automatic_enable = {
-          exclude = {
-            "rust_analyzer",
-            "ts_ls",
+        setup = {
+          automatic_enable = {
+            exclude = {
+              "rust_analyzer",
+            },
           },
         },
       },
