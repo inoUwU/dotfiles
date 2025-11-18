@@ -28,11 +28,12 @@ return {
     },
     picker = { enabled = true },
     dashboard = { example = "doom" },
+    gh = { enabled = true },
   },
   config = function()
     local picker = require("snacks.picker")
 
-    -- TODO　色は変わらなくていい
+    -- TODO:　色は変わらなくていい
     local snacks = require("snacks")
     local keymap = vim.keymap -- for conciseness
 
