@@ -4,6 +4,7 @@ return {
   lazy = false,
   opts = {
     indent = { enabled = true },
+    explorer = { enabled = true },
     animate = { enabled = true },
     bigfile = { enabled = true },
     notifier = { enabled = true },
@@ -32,9 +33,8 @@ return {
   config = function()
     local picker = require("snacks.picker")
 
-    -- TODO　色は変わらなくていい
     local snacks = require("snacks")
-    local keymap = vim.keymap -- for conciseness
+    local keymap = vim.keymap
 
     local function get_text()
       local visual = picker.util.visual()
@@ -60,6 +60,10 @@ return {
     keymap.set("n", "<leader>fc", function()
       picker.colorschemes()
     end, { desc = "Find colortheme" })
+
+    keymap.set("n", "<leader>e", function()
+      picker.explorer()
+    end, { desc = "explorer" })
 
     keymap.set("n", "<leader>fb", function()
       picker.buffers()
