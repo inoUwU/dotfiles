@@ -19,8 +19,13 @@ vim.filetype.add({
     [".*/%.github[%w/]+workflows[%w/]+.*%.ya?ml"] = "yaml.github",
   },
 })
+
 require("lsp")
 require("lazy_nvim")
+
+local theme = require("last-color").recall() or "yoda"
+vim.cmd.colorscheme(theme)
+
 vim.api.nvim_create_autocmd("VimEnter", {
   callback = function()
     require("snacks").dashboard.setup()

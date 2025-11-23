@@ -9,7 +9,6 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
-
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -96,6 +95,11 @@
 
   # Install firefox.
   programs.firefox.enable = true;
+
+  # Install zsh
+  programs.zsh.enable = true;
+  users.users.ino.shell = pkgs.zsh;
+
   
   # Install hyprland
   programs.hyprland = {
@@ -147,8 +151,9 @@
     zed-editor
    
     swww
-    rofi-wayland
+    rofi
     kitty
+    ghostty
     waybar
     hyprpaper
     eww
@@ -165,7 +170,8 @@
     mplus-outline-fonts.githubRelease
     dina-font
     proggyfonts
-    (nerdfonts.override { fonts = [ "Meslo" ]; })
+    # nerd-fonts.meslo-lg
+    # nerd-fonts.noto
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

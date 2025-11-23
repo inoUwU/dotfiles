@@ -1,7 +1,6 @@
 return {
   "craftzdog/solarized-osaka.nvim",
   lazy = false,
-  priority = 1000,
   config = function()
     require("solarized-osaka").setup({
       transparent = true,
@@ -19,17 +18,17 @@ return {
           bg = c.bg_dark,
           fg = c.bg_dark,
         }
-        -- hl.TelescopePromptNormal = {
-        --   bg = prompt,
-        -- }
-        -- hl.TelescopePromptBorder = {
-        --   bg = prompt,
-        --   fg = prompt,
-        -- }
-        -- hl.TelescopePromptTitle = {
-        --   bg = prompt,
-        --   fg = prompt,
-        -- }
+        hl.telescopepromptnormal = {
+          bg = prompt,
+        }
+        hl.telescopepromptborder = {
+          bg = prompt,
+          fg = prompt,
+        }
+        hl.telescopeprompttitle = {
+          bg = prompt,
+          fg = prompt,
+        }
         hl.TelescopePreviewTitle = {
           bg = c.bg_dark,
           fg = c.bg_dark,
@@ -40,7 +39,5 @@ return {
         }
       end,
     })
-
-    vim.cmd([[colorscheme solarized-osaka]])
   end,
 }

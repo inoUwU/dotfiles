@@ -16,11 +16,18 @@ vim.opt.inccommand = "split"
 vim.api.nvim_set_keymap("x", "p", '"_dP', { noremap = true, silent = true }) -- Visual mode keymap to prevent clipboard overwrite on paste
 vim.opt.spelllang = { "en", "cjk" } -- spellcheck
 vim.opt.fillchars = { eob = " " } -- ファイル末尾以降の`~`の表示を削除
--- vim.opt.fillchars:append({ eob = "‖" })
 
 vim.opt.shellcmdflag = "-c"
 vim.opt.shellquote = '"'
 vim.opt.shellxquote = ""
+vim.o.winborder = "shadow"
+
+vim.diagnostic.config({
+  -- 現在の行だけ表示
+  virtual_lines = {
+    current_line = true,
+  },
+})
 
 -- os毎の使用するshellの設定
 if vim.fn.has("win64") == 1 then
