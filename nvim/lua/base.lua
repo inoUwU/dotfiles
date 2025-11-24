@@ -23,9 +23,18 @@ vim.opt.shellxquote = ""
 vim.o.winborder = "shadow"
 
 vim.diagnostic.config({
-  -- 現在の行だけ表示
+  virtual_text = false,
   virtual_lines = {
     current_line = true,
+  },
+  underline = false,
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = "",
+      [vim.diagnostic.severity.WARN] = "",
+      [vim.diagnostic.severity.INFO] = "",
+      [vim.diagnostic.severity.HINT] = "",
+    },
   },
 })
 

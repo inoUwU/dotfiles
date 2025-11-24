@@ -7,9 +7,11 @@ return {
     explorer = { enabled = true },
     animate = { enabled = true },
     bigfile = { enabled = true },
+    bufdelete = { enabled = true },
     notifier = { enabled = true },
     quickfile = { enabled = true },
     statuscolumn = { enabled = true },
+    input = { enabled = true },
     words = { enabled = true },
     lazygit = { enabled = true },
     terminal = { enabled = true },
@@ -68,6 +70,18 @@ return {
     keymap.set("n", "<leader>fb", function()
       picker.buffers()
     end, { desc = "Find buffers" })
+
+    keymap.set("n", "<leader>ba", function()
+      snacks.bufdelete.all()
+    end, { desc = "Buffer delete all" })
+
+    keymap.set("n", "<leader>bo", function()
+      snacks.bufdelete.other()
+    end, { desc = "Buffer delete other" })
+
+    keymap.set("n", "<leader>wt", function()
+      snacks.terminal.open()
+    end, { desc = "Open Terminal" })
 
     keymap.set("n", "<C-p>", function()
       picker.commands()
