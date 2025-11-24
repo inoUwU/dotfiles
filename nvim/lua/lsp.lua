@@ -14,5 +14,22 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
     opts.desc = "Show line diagnostics"
     keymap.set("n", "<leader>ll", vim.diagnostic.open_float, opts)
+
+    vim.diagnostic.config({
+      severity_sort = true,
+      virtual_text = false,
+      virtual_lines = {
+        current_line = true,
+      },
+      underline = false,
+      signs = {
+        text = {
+          [vim.diagnostic.severity.ERROR] = "",
+          [vim.diagnostic.severity.WARN] = "",
+          [vim.diagnostic.severity.INFO] = "",
+          [vim.diagnostic.severity.HINT] = "",
+        },
+      },
+    })
   end,
 })

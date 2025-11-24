@@ -22,23 +22,6 @@ vim.opt.shellquote = '"'
 vim.opt.shellxquote = ""
 vim.o.winborder = "shadow"
 
-vim.diagnostic.config({
-  severity_sort = true,
-  virtual_text = false,
-  virtual_lines = {
-    current_line = true,
-  },
-  underline = false,
-  signs = {
-    text = {
-      [vim.diagnostic.severity.ERROR] = "",
-      [vim.diagnostic.severity.WARN] = "",
-      [vim.diagnostic.severity.INFO] = "",
-      [vim.diagnostic.severity.HINT] = "",
-    },
-  },
-})
-
 -- os毎の使用するshellの設定
 if vim.fn.has("win64") == 1 then
   -- Windowsの場合
