@@ -23,6 +23,7 @@ vim.opt.shellxquote = ""
 vim.o.winborder = "shadow"
 
 vim.diagnostic.config({
+  severity_sort = true,
   virtual_text = false,
   virtual_lines = {
     current_line = true,
