@@ -116,6 +116,10 @@ ln -sf ~/dotfiles/lazygit/config.yml ~/.config/lazygit/config.yml
 | `Prefix + h/j/k/l` | ペイン移動（Vim風） / Pane navigation (Vim-like) |
 | `Alt + 矢印キー` | ペインリサイズ / Pane resize |
 
+> **Note**: `Ctrl-s`がターミナルのフロー制御と競合する場合は、`stty -ixon`を実行してください。
+>
+> If `Ctrl-s` conflicts with terminal flow control, run `stty -ixon`.
+
 ### Neovim
 
 | キー / Key | 説明 / Description |
