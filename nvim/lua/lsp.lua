@@ -15,6 +15,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
     opts.desc = "Show line diagnostics"
     keymap.set("n", "<leader>ll", vim.diagnostic.open_float, opts)
 
+    local signs = { Error = "", Warn = "", Info = "", Hint = "" }
+    for type, icon in pairs(signs) do
+      local hl = "DiagnosticSign" .. type
+      vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+    end
+
     vim.diagnostic.config({
       severity_sort = true,
       virtual_text = false,
