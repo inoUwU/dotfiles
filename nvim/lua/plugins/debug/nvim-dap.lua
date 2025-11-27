@@ -6,9 +6,10 @@ return {
   dependencies = {
     {
       "theHamsta/nvim-dap-virtual-text",
+      lazy = true,
       opts = {},
     },
-    { "igorlfs/nvim-dap-view", opts = {} },
+    { "igorlfs/nvim-dap-view", lazy = true, opts = {} },
   },
 
   -- stylua: ignore
