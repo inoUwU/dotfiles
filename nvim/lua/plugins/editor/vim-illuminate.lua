@@ -1,7 +1,7 @@
 return {
   -- 同じ文字にハイライトを付ける
   "RRethy/vim-illuminate",
-
+  event = { "BufReadPost", "BufNewFile" },
   config = function()
     -- default configuration
     require("illuminate").configure({

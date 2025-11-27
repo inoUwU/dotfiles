@@ -1,5 +1,6 @@
 return {
   "nvzone/showkeys",
+  cmd = { "ShowkeysToggle" },
   dependencies = { "folke/snacks.nvim" },
   opts = {
     timeout = 3,

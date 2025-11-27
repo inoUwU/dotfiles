@@ -1,6 +1,6 @@
 return {
   "p00f/clangd_extensions.nvim",
-  lazy = true,
+  ft = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
   config = function() end,
   opts = {
     inlay_hints = {
