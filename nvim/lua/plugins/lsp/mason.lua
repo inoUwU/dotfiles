@@ -1,6 +1,7 @@
 return {
   {
     "williamboman/mason-lspconfig.nvim",
+    event = { "BufReadPre", "BufNewFile" },
     opts = {
       -- list of servers for mason to install
       ensure_installed = {
@@ -16,6 +17,7 @@ return {
     dependencies = {
       {
         "williamboman/mason.nvim",
+        cmd = { "Mason", "MasonInstall", "MasonUninstall", "MasonUpdate" },
         opts = {
           ui = {
             icons = {
@@ -40,6 +42,7 @@ return {
   },
   {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
+    event = { "BufReadPre", "BufNewFile" },
     opts = {
       ensure_installed = {
         "prettier", -- prettier formatter

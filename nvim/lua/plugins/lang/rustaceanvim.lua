@@ -3,7 +3,6 @@ return {
     -- NOTE: rust_analyzerはmansonでインストールしない
     "mrcjkb/rustaceanvim",
     version = "^6", -- Recommended
-    lazy = false, -- This plugin is already lazy
     ft = { "rust" },
   },
 }

@@ -1,5 +1,7 @@
 return {
   "inoUwU/chafa.nvim",
+  ft = { "png", "jpg", "jpeg", "gif", "bmp", "webp" },
+  cmd = { "Chafa" },
   dependencies = {
     "nvim-lua/plenary.nvim",
     "m00qek/baleia.nvim",
