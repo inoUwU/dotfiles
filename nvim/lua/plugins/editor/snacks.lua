@@ -30,12 +30,16 @@ return {
       },
     },
     picker = { enabled = true },
-    dashboard = { example = "doom" },
+    dashboard = {
+      enabled = true,
+      example = "doom",
+    },
   },
-  config = function()
-    local picker = require("snacks.picker")
-
+  config = function(_, opts)
     local snacks = require("snacks")
+    snacks.setup(opts)
+
+    local picker = require("snacks.picker")
     local keymap = vim.keymap
 
     local function get_text()
