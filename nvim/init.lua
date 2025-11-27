@@ -28,8 +28,12 @@ vim.cmd.colorscheme(theme)
 
 vim.api.nvim_create_autocmd("VimEnter", {
   callback = function()
-    require("snacks").dashboard.setup()
-    require("snacks").input.enable()
+    -- vim.scheduleでlazy.nvimの統計情報が更新された後にダッシュボードを初期化
+    -- これにより、正しい起動時間が表示される
+    vim.schedule(function()
+      require("snacks").dashboard.setup()
+      require("snacks").input.enable()
+    end)
   end,
 })
 
