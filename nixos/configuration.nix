@@ -75,8 +75,8 @@
     # JACKアプリケーションを使用したい場合はこれをコメント解除
     #jack.enable = true;
 
-    # exampleのsession managerを使用（他にはまだパッケージ化されていないため、これがデフォルトで有効
-    # 今のところ設定で再定義する必要はありません）
+    # exampleのsession managerを使用します（他のmanagerはまだパッケージ化されていないため、
+    # これがデフォルトで有効になっています。今のところ設定で再定義する必要はありません）
     #media-session.enable = true;
   };
 
@@ -174,7 +174,7 @@
     # nerd-fonts.noto
   ];
 
-  # 一部のプログラムはSUID wrappersが必要で、さらに設定可能です
+  # 一部のプログラムはSUID wrappersが必要で、さらに設定が可能です。
   # 有効化したいサービスのリスト：
 
   # OpenSSH daemonを有効化

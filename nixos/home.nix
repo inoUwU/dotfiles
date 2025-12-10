@@ -20,7 +20,7 @@
     # pkgs.hello
 
     # # パッケージを微調整すると便利な場合があります。例えば、
-    # # overrideを適用することで。ここで直接行うことができますが、
+    # # overrideを適用することができます。ここで直接行うことができますが、
     # # 括弧を忘れないでください。限られた数のフォントで
     # # Nerd Fontsをインストールしたいかもしれません。
     # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
