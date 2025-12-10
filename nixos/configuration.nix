@@ -1,33 +1,33 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
+# このconfigurationファイルを編集してシステムにインストールするものを定義します。
+# ヘルプは configuration.nix(5) の man page と
+# NixOS manual ('nixos-help'を実行してアクセス可能) で利用できます。
 
 { config, pkgs, ... }:
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [ # hardware scanの結果を含める
       ./hardware-configuration.nix
     ];
-  # Bootloader.
+  # Bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking.hostName = "nixos"; # hostnameを定義
+  # networking.wireless.enable = true;  # wpa_supplicant経由でwirelessサポートを有効化
 
-  # Configure network proxy if necessary
+  # 必要に応じてnetwork proxyを設定
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-  # Enable networking
+  # networkingを有効化
   networking.networkmanager.enable = true;
   networking.wireless.enable = false;
 
-  # Set your time zone.
+  # タイムゾーンを設定
   time.timeZone = "Asia/Tokyo";
 
-  # Select internationalisation properties.
+  # 国際化プロパティを選択
   i18n.defaultLocale = "ja_JP.UTF-8";
 
   i18n.extraLocaleSettings = {
@@ -48,23 +48,23 @@
     ];
   };
 
-  # Enable the X11 windowing system.
+  # X11 windowing systemを有効化
   services.xserver.enable = true;
 
-  # Enable the GNOME Desktop Environment.
+  # GNOME Desktop Environmentを有効化
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
-  # Configure keymap in X11
+  # X11でkeymapを設定
   services.xserver.xkb = {
     layout = "jp";
     variant = "";
   };
 
-  # Enable CUPS to print documents.
+  # ドキュメント印刷のためにCUPSを有効化
   services.printing.enable = true;
 
-  # Enable sound with pipewire.
+  # pipewireでサウンドを有効化
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -72,18 +72,18 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
+    # JACKアプリケーションを使用したい場合はこれをコメント解除
     #jack.enable = true;
 
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
+    # exampleのsession managerを使用します（他のmanagerはまだパッケージ化されていないため、
+    # これがデフォルトで有効になっています。今のところ設定で再定義する必要はありません）
     #media-session.enable = true;
   };
 
-  # Enable touchpad support (enabled default in most desktopManager).
+  # touchpadサポートを有効化（ほとんどのdesktopManagerでデフォルトで有効）
   # services.xserver.libinput.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
+  # ユーザーアカウントを定義。'passwd'でパスワードを設定するのを忘れずに
   users.users.ino = {
     isNormalUser = true;
     description = "ino";
@@ -93,15 +93,15 @@
     ];
   };
 
-  # Install firefox.
+  # firefoxをインストール
   programs.firefox.enable = true;
 
-  # Install zsh
+  # zshをインストール
   programs.zsh.enable = true;
   users.users.ino.shell = pkgs.zsh;
 
   
-  # Install hyprland
+  # hyprlandをインストール
   programs.hyprland = {
     enable = true;
     # nvidiaPatches = true;
@@ -109,9 +109,9 @@
   };
    
   environment.sessionVariables = {
-    # If your cursor becomes invisible 
+    # cursorが見えなくなる場合 
     WLR_NO_HARDWARE_CURSORS = "1";
-    # Hint electron apps to use wayland
+    # electronアプリにwaylandを使用するようヒント
     NIXOS_OZONE_WL = "1";
   };
 
@@ -120,22 +120,22 @@
    opengl.enable = true;
   };
 
-  # enable gpu powerrrrrrr
+  # GPUパワーを有効化
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia = {
-   # Most wayland compositors need this
+   # ほとんどのwayland compositorにはこれが必要
     modesetting.enable = true;
     powerManagement.enable = true;
     powerManagement.finegrained = false;
     open = false; # オープンソース版ドライバを使いたいなら true にする（ただしGTX 10xx は非対応）
     nvidiaSettings = true; # NVIDIA Settings GUIを有効にする
-    package = config.boot.kernelPackages.nvidiaPackages.stable; # install latest stable driver
+    package = config.boot.kernelPackages.nvidiaPackages.stable; # 最新のstable driverをインストール
   };
 
-  # Allow unfree packages
+  # unfreeパッケージを許可
   nixpkgs.config.allowUnfree = true; # NVIDIAのドライバはUnfree
 
-  # List packages installed in system profile. To search, run:
+  # system profileにインストールされるパッケージのリスト。検索するには次を実行：
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     vim 
@@ -174,25 +174,23 @@
     # nerd-fonts.noto
   ];
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # List services that you want to enable:
+  # 一部のプログラムはSUID wrappersが必要で、さらに設定が可能です。
+  # 有効化したいサービスのリスト：
 
-  # Enable the OpenSSH daemon.
+  # OpenSSH daemonを有効化
   # services.openssh.enable = true;
 
-  # Open ports in the firewall.
+  # firewallでポートを開く
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
+  # またはfirewallを完全に無効化
   # networking.firewall.enable = false;
 
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "24.11"; # Did you read the comment?
- 
+  # この値は、システム上のファイル位置やdatabaseバージョンなどの
+  # statefulデータのデフォルト設定がどのNixOS releaseから取得されたかを決定します。
+  # この値は、このシステムの最初のインストールのreleaseバージョンのままにしておくことが
+  # 推奨されます。この値を変更する前に、このオプションのドキュメントを読んでください
+  # (例: man configuration.nix または https://nixos.org/nixos/options.html)
+  system.stateVersion = "24.11"; # このコメントを読みましたか？
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 }
