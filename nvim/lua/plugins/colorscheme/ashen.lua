@@ -1,5 +1,5 @@
 return {
   "ficcdaf/ashen.nvim",
-  lazy = false,
+  lazy = true,
   opts = {},
 }

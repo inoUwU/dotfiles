@@ -22,13 +22,6 @@ vim.opt.shellquote = '"'
 vim.opt.shellxquote = ""
 vim.o.winborder = "shadow"
 
-vim.diagnostic.config({
-  -- 現在の行だけ表示
-  virtual_lines = {
-    current_line = true,
-  },
-})
-
 -- os毎の使用するshellの設定
 if vim.fn.has("win64") == 1 then
   -- Windowsの場合

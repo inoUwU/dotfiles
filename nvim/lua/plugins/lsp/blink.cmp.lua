@@ -12,7 +12,7 @@ return {
       ["<C-k>"] = { "show", "select_prev", "fallback" },
       ["<C-e>"] = { "hide", "fallback" },
       ["<Tab>"] = { "accept", "fallback" },
-      ["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
+      ["<C-i>"] = { "show", "show_documentation", "hide_documentation" },
       ["<up>"] = { "select_prev", "fallback" },
       ["<down>"] = { "select_next", "fallback" },
       ["<C-]>"] = { "show_documentation", "hide_documentation", "fallback" },

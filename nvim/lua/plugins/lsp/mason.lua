@@ -1,10 +1,10 @@
 return {
   {
     "williamboman/mason-lspconfig.nvim",
+    event = { "BufReadPre", "BufNewFile" },
     opts = {
       -- list of servers for mason to install
       ensure_installed = {
-        "rust_analyzer",
         "vtsls",
         "html",
         "cssls",
@@ -17,6 +17,7 @@ return {
     dependencies = {
       {
         "williamboman/mason.nvim",
+        cmd = { "Mason", "MasonInstall", "MasonUninstall", "MasonUpdate" },
         opts = {
           ui = {
             icons = {
@@ -29,10 +30,11 @@ return {
       },
       "neovim/nvim-lspconfig",
       opts = {
-        automatic_enable = {
-          exclude = {
-            "rust_analyzer",
-            "ts_ls",
+        setup = {
+          automatic_enable = {
+            exclude = {
+              "rust_analyzer",
+            },
           },
         },
       },
@@ -40,6 +42,7 @@ return {
   },
   {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
+    event = { "BufReadPre", "BufNewFile" },
     opts = {
       ensure_installed = {
         "prettier", -- prettier formatter

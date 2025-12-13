@@ -2,7 +2,7 @@
 return {
   "numToStr/Comment.nvim",
   opts = {},
-  lazy = false,
+  event = { "BufReadPost", "BufNewFile" },
 
   config = function()
     require("Comment").setup({

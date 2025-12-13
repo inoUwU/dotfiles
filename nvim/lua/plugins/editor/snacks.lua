@@ -4,11 +4,14 @@ return {
   lazy = false,
   opts = {
     indent = { enabled = true },
+    explorer = { enabled = true },
     animate = { enabled = true },
     bigfile = { enabled = true },
+    bufdelete = { enabled = true },
     notifier = { enabled = true },
     quickfile = { enabled = true },
     statuscolumn = { enabled = true },
+    input = { enabled = true },
     words = { enabled = true },
     lazygit = { enabled = true },
     terminal = { enabled = true },
@@ -27,14 +30,17 @@ return {
       },
     },
     picker = { enabled = true },
-    dashboard = { example = "doom" },
+    dashboard = {
+      enabled = true,
+      example = "doom",
+    },
   },
-  config = function()
-    local picker = require("snacks.picker")
-
-    -- TODO　色は変わらなくていい
+  config = function(_, opts)
     local snacks = require("snacks")
-    local keymap = vim.keymap -- for conciseness
+    snacks.setup(opts)
+
+    local picker = require("snacks.picker")
+    local keymap = vim.keymap
 
     local function get_text()
       local visual = picker.util.visual()
@@ -61,9 +67,25 @@ return {
       picker.colorschemes()
     end, { desc = "Find colortheme" })
 
+    keymap.set("n", "<leader>e", function()
+      picker.explorer()
+    end, { desc = "explorer" })
+
     keymap.set("n", "<leader>fb", function()
       picker.buffers()
     end, { desc = "Find buffers" })
+
+    keymap.set("n", "<leader>ba", function()
+      snacks.bufdelete.all()
+    end, { desc = "Buffer delete all" })
+
+    keymap.set("n", "<leader>bo", function()
+      snacks.bufdelete.other()
+    end, { desc = "Buffer delete other" })
+
+    keymap.set("n", "<leader>wt", function()
+      snacks.terminal.open()
+    end, { desc = "Open Terminal" })
 
     keymap.set("n", "<C-p>", function()
       picker.commands()
