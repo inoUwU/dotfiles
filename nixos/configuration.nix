@@ -150,13 +150,13 @@
     alacritty
     zed-editor
    
-    swww
+    awww 
     rofi
     kitty
     ghostty
     waybar
-    hyprpaper
-    eww
+  ]++ [
+    inputs.awww.packages.${pkgs.system}.awww
   ];
 
   fonts.fontDir.enable = true;
@@ -173,6 +173,8 @@
     # nerd-fonts.meslo-lg
     # nerd-fonts.noto
   ];
+
+  virtualisation.waydroid.enable = true; 
 
   # Some programs need SUID wrappers, can be configured further or are
   # List services that you want to enable:
