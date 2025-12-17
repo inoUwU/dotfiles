@@ -23,10 +23,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
     vim.diagnostic.config({
       severity_sort = true,
-      virtual_text = false,
-      virtual_lines = {
+      virtual_text = {
         current_line = true,
       },
+      virtual_lines = false,
       underline = false,
       signs = {
         text = {
