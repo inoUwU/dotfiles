@@ -1,0 +1,18 @@
+{
+  pkgs,
+  lib,
+  ...
+}: {
+  home.packages = with pkgs; [
+    firefox
+    protonmail-desktop
+    proton-pass
+    vesktop
+    ladybird
+    zed-editor
+    spotify
+    alacritty
+    kitty
+    ghostty
+  ];
+}

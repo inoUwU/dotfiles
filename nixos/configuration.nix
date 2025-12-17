@@ -17,8 +17,7 @@
   # networking.wireless.enable = true;  # wpa_supplicant経由でwirelessサポートを有効化
 
   # 必要に応じてnetwork proxyを設定
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+  # networking.proxy.default = "http://user:password@proxy:port/"; networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # networkingを有効化
   networking.networkmanager.enable = true;
@@ -91,15 +90,15 @@
     packages = with pkgs; [
     #  thunderbird
     ];
+    shell = pkgs.zsh
   };
 
-  # firefoxをインストール
-  programs.firefox.enable = true;
-
-  # zshをインストール
-  programs.zsh.enable = true;
-  users.users.ino.shell = pkgs.zsh;
-
+  programs.nh = {
+    enable = true;
+    clean.enable = true;
+    clean.extraArgs = "--keep-since 4d --keep 3";
+     # flake = "/home/user/my-nixos-config"; # sets NH_OS_FLAKE variable for you
+  };
   
   # hyprlandをインストール
   programs.hyprland = {
@@ -141,22 +140,9 @@
     vim 
     wget
     gh
-    
     wirelesstools
     iw
     iwd
-    spotify
-    discord
-    alacritty
-    zed-editor
-   
-    awww 
-    rofi
-    kitty
-    ghostty
-    waybar
-  ]++ [
-    inputs.awww.packages.${pkgs.system}.awww
   ];
 
   fonts.fontDir.enable = true;

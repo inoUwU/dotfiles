@@ -1,9 +1,17 @@
-{ config, pkgs, ... }:
+{ config, pkgs,inputs,lib, ... }:
 
 {
   # Home Managerはあなたと管理すべきパスについての情報が必要です
   home.username = "ino";
   home.homeDirectory = "/home/ino";
+
+  imports = [
+    inputs.vicinae.homeManagerModules.default
+    ./rice/rice.nix
+    ./apps/apps.nix
+    ./hypr/hypr.nix 
+    ./waybar/waybar.nix
+  ];
 
   # この値は、あなたの設定が互換性を持つHome Manager releaseを決定します。
   # これは、新しいHome Manager releaseが後方互換性のない変更を導入したときに
@@ -12,6 +20,9 @@
   # Home Managerを更新する場合でも、この値を変更すべきではありません。
   # もし値を更新したい場合は、必ず最初にHome Managerのrelease notesを確認してください。
   home.stateVersion = "24.05"; # 変更する前にこのコメントを読んでください
+
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
 
   # home.packagesオプションを使用すると、Nixパッケージを環境にインストールできます
   home.packages = [
@@ -31,16 +42,7 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
     #
-    pkgs.fastfetch
-    pkgs.zsh
-    pkgs.go
-    pkgs.bun 
-    pkgs.nodejs_24
-    pkgs.starship
-    pkgs.tmux
-    pkgs.lazygit
-    pkgs.ladybird
-    pkgs.bluetuith 
+    pkgs.nixfmt-rfc-style 
   ];
 
   # Home Managerはdotfilesの管理が得意です。plain fileを管理する主な方法は
