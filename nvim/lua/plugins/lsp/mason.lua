@@ -12,6 +12,8 @@ return {
         "lua_ls",
         "eslint",
         "denols",
+        "zls",
+        "codelldb",
       },
     },
     dependencies = {
