@@ -9,10 +9,5 @@
     proton-pass
     vesktop
     ladybird
-    zed-editor
-    spotify
-    alacritty
-    kitty
-    ghostty
   ];
 }

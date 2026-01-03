@@ -1,7 +1,8 @@
 {lib, ...}: {
   imports = [
-    #./vicinae.nix
+    ./vicinae.nix
     ./noctalia.nix 
-    # ./niri.nix
+    ./niri.nix
+    ./hypr.nix
   ];
 }

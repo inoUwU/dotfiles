@@ -9,6 +9,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    niri = {
+      url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     noctalia = {
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -19,26 +24,19 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, vicinae, ... }:
+  outputs = { self, nixpkgs, home-manager, ... }@inputs:
   let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
+    specialArgs = { inherit inputs; };
   in
   {
-    homeConfigurations = {
-      ino = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-
-        # home.nix に inputs を渡すため
-        extraSpecialArgs = {
-          inherit vicinae;
-          inputs = { inherit vicinae; };
-        };
-
-        modules = [
-          ./home.nix
-        ];
-      };
+    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+      inherit system;
+      inherit specialArgs;
+      modules = [
+        ./configuration.nix
+      ];
     };
   };
 }

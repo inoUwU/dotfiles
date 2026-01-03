@@ -6,5 +6,8 @@
     ./zsh.nix
     ./tmux.nix
     ./starship.nix
+    ./editors.nix
+    ./media.nix
+    ./terminals.nix
   ];
 }

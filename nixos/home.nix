@@ -9,8 +9,6 @@
     inputs.vicinae.homeManagerModules.default
     ./rice/rice.nix
     ./apps/apps.nix
-    ./hypr/hypr.nix 
-    ./waybar/waybar.nix
   ];
 
   # この値は、あなたの設定が互換性を持つHome Manager releaseを決定します。
