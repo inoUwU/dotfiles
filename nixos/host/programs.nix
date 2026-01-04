@@ -1,6 +1,9 @@
 { pkgs, ... }:
 
 {
+  # Enable zsh for system-level configuration
+  programs.zsh.enable = true;
+
   environment.systemPackages = with pkgs; [
     # System Tools
     vim 
@@ -11,6 +14,7 @@
     iwd
     
     # Languages (from apps/lang.nix)
+    lua
     go
     bun 
     nodejs_24
@@ -32,7 +36,7 @@
   fonts.packages = with pkgs; [
     noto-fonts
     noto-fonts-cjk-sans
-    noto-fonts-emoji
+    noto-fonts-color-emoji
     liberation_ttf
     fira-code
     fira-code-symbols

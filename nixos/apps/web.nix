@@ -7,7 +7,7 @@
     firefox
     protonmail-desktop
     proton-pass
-    vesktop
+    discord
     ladybird
   ];
 }
