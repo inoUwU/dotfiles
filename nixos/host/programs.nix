@@ -32,6 +32,10 @@
     xwayland.enable = true;
   };
 
+  programs.niri = {
+    enable = true;
+  };
+
   fonts.fontDir.enable = true;
   fonts.packages = with pkgs; [
     noto-fonts
