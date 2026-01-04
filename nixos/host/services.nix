@@ -1,9 +1,9 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   # Networking
   networking.networkmanager.enable = true;
-  networking.wireless.enable = false;
+  networking.wireless.enable = lib.mkForce false;
 
   # Input Method
   i18n.inputMethod = {
