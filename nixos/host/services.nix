@@ -5,6 +5,9 @@
   networking.networkmanager.enable = true;
   networking.wireless.enable = lib.mkForce false;
 
+  # Polkit for NetworkManager access
+  security.polkit.enable = true;
+
   # Input Method
   i18n.inputMethod = {
     enable = true;

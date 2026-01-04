@@ -12,6 +12,7 @@
     wirelesstools
     iw
     iwd
+    networkmanagerapplet # NetworkManager applet for D-Bus communication
     
     # Languages (from apps/lang.nix)
     lua
