@@ -14,6 +14,7 @@
     iwd
     
     # Languages (from apps/lang.nix)
+    lua
     go
     bun 
     nodejs_24
