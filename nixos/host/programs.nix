@@ -1,6 +1,9 @@
 { pkgs, ... }:
 
 {
+  # Enable zsh for system-level configuration
+  programs.zsh.enable = true;
+
   environment.systemPackages = with pkgs; [
     # System Tools
     vim 
