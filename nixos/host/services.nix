@@ -3,7 +3,7 @@
 {
   # Networking
   networking.networkmanager.enable = true;
-  networking.wireless.enable = lib.mkForce false;
+  #networking.wireless.enable = false
 
   # Input Method
   i18n.inputMethod = {
