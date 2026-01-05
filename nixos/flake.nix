@@ -36,6 +36,7 @@
       inherit specialArgs;
       modules = [
         ./configuration.nix
+        inputs.niri.nixosModules.niri
       ];
     };
   };
