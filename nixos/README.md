@@ -31,15 +31,15 @@ Based on [blkedn](https://github.com/vicinaehq/blkedn).
 
 ## 主なコンポーネント
 
-| Component | Name | Description |
-| --- | --- | --- |
-| **OS** | NixOS | Unstable channel |
-| **WM** | Hyprland / Niri | ログイン画面で選択可能 |
-| **Shell** | Noctalia | ステータスバー、通知、コントロールセンター |
-| **Launcher** | Vicinae | アプリ起動、クリップボード管理 (Raycast like) |
-| **Terminal** | Ghostty | メインターミナル |
-| **Shell** | Zsh | ユーザーシェル |
-| **Input** | Fcitx5 + Mozc | 日本語入力 |
+| Component    | Name            | Description                                   |
+| ------------ | --------------- | --------------------------------------------- |
+| **OS**       | NixOS           | Unstable channel                              |
+| **WM**       | Hyprland / Niri | ログイン画面で選択可能                        |
+| **Shell**    | Noctalia        | ステータスバー、通知、コントロールセンター    |
+| **Launcher** | Vicinae         | アプリ起動、クリップボード管理 (Raycast like) |
+| **Terminal** | Ghostty         | メインターミナル                              |
+| **Shell**    | Zsh             | ユーザーシェル                                |
+| **Input**    | Fcitx5 + Mozc   | 日本語入力                                    |
 
 ## セットアップ & 更新
 
@@ -47,7 +47,10 @@ Based on [blkedn](https://github.com/vicinaehq/blkedn).
 
 ```bash
 # システムとユーザー設定を一括更新
-nixos-rebuild switch --flake .#nixos
+nixos-rebuild switch --flake ./nixos
+
+# 依存関係の更新
+nix flake update --flake ./nixos
 ```
 
 ## 使い方
@@ -58,15 +61,15 @@ PC起動後のログイン画面 (GDM) にて、ユーザーを選択した後�
 
 ### キーバインド (Niri / 共通)
 
-| Action | Keybinding | Command |
-| --- | --- | --- |
-| **Launcher** | `Super + Space` | Vicinae |
-| **Terminal** | `Super + Enter` | Ghostty |
-| **App Launcher** | `Super + D` | Rofi (Backup) |
-| **Close Window** | `Super + Q` | - |
-| **Control Center** | `Super + Alt + S` | Noctalia |
-| **Settings** | `Super + Alt + ,` | Noctalia |
-| **Lock Screen** | `Super + Alt + Esc` | Noctalia |
-| **Session Menu** | `Super + Shift + ,` | Noctalia |
+| Action             | Keybinding          | Command       |
+| ------------------ | ------------------- | ------------- |
+| **Launcher**       | `Super + Space`     | Vicinae       |
+| **Terminal**       | `Super + Enter`     | Ghostty       |
+| **App Launcher**   | `Super + D`         | Rofi (Backup) |
+| **Close Window**   | `Super + Q`         | -             |
+| **Control Center** | `Super + Alt + S`   | Noctalia      |
+| **Settings**       | `Super + Alt + ,`   | Noctalia      |
+| **Lock Screen**    | `Super + Alt + Esc` | Noctalia      |
+| **Session Menu**   | `Super + Shift + ,` | Noctalia      |
 
 ※ Hyprland の詳細なキーバインドは `rice/hyprland.conf` を参照してください。
