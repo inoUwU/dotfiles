@@ -1,13 +1,14 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   # Networking
   networking.networkmanager.enable = true;
-  networking.wireless.enable = false;
+  #networking.wireless.enable = false
 
   # Input Method
   i18n.inputMethod = {
-    enabled = "fcitx5";
+    enable = true;
+    type = "fcitx5";
     fcitx5.addons = with pkgs; [
         fcitx5-mozc
         fcitx5-gtk
@@ -16,8 +17,8 @@
 
   # X11 / Desktop
   services.xserver.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  services.displayManager.gdm.enable = true;
+  services.desktopManager.gnome.enable = true;
   services.xserver.xkb = {
     layout = "jp";
     variant = "";
@@ -27,7 +28,7 @@
   services.printing.enable = true;
 
   # Audio
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;

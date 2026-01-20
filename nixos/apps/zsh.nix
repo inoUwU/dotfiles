@@ -14,7 +14,7 @@
       ll = "ls -l";
     };
 
-    initExtra = ''
+    initContent = ''
       # ここに普通の .zshrc を書ける
       export EDITOR=nvim
     '';

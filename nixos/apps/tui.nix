@@ -4,6 +4,13 @@
   ...
 }: {
   home.packages = with pkgs; [
+    zoxide
+    ghq
+    xh
+    gh
+    fzf
+    fd
+    ripgrep
     numbat
     bottom
     microfetch
