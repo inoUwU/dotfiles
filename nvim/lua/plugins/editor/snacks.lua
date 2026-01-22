@@ -8,7 +8,6 @@ return {
     animate = { enabled = true },
     bigfile = { enabled = true },
     bufdelete = { enabled = true },
-    notifier = { enabled = true },
     quickfile = { enabled = true },
     statuscolumn = { enabled = true },
     input = { enabled = true },
