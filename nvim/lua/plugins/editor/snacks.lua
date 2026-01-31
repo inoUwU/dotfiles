@@ -66,6 +66,10 @@ return {
       picker.colorschemes()
     end, { desc = "Find colortheme" })
 
+    keymap.set("n", "<leader>ft", function()
+      picker.todo_comments()
+    end, { desc = "Find Todos" })
+
     keymap.set("n", "<leader>e", function()
       picker.explorer()
     end, { desc = "explorer" })

@@ -82,6 +82,7 @@
   "vim-illuminate": { "branch": "master", "commit": "0d1e93684da00ab7c057410fecfc24f434698898" },
   "volt": { "branch": "main", "commit": "620de1321f275ec9d80028c68d1b88b409c0c8b1" },
   "which-key.nvim": { "branch": "main", "commit": "3aab2147e74890957785941f0c1ad87d0a44c15a" },
+  "wisteria": { "branch": "main", "commit": "9d2ff53f31b8a17de82531ea2376e258ad500f4d" },
   "yazi.nvim": { "branch": "main", "commit": "f75450ef18689482f2026916d836dd30f7b22d89" },
   "yoda.nvim": { "branch": "main", "commit": "266dd6e4f3ff500ebf6b58e7618b73ffde79f1c1" }
 }
