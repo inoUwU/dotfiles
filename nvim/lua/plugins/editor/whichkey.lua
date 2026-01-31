@@ -20,9 +20,9 @@ return {
       desc = "Find/Filer",
     },
     {
-      "<leader>j",
+      "<leader>h",
       function() end,
-      desc = "Jump",
+      desc = "Hop",
     },
     {
       "<leader>d",

@@ -1,10 +1,12 @@
 return {
   "phaazon/hop.nvim",
   branch = "v2",
-  opts = {
-    multi_windows = true,
-  },
+  config = function()
+    require("hop").setup({
+      multi_windows = true,
+    })
+  end,
   keys = {
-    { mode = "n", "<leader>j", "<cmd>HopWord<CR>", desc = "HopWord" },
+    { mode = "n", "<leader>h", "<cmd>HopWord<CR>", desc = "HopWord" },
   },
 }
