@@ -18,6 +18,7 @@
   # X11 / Desktop
   services.xserver.enable = true;
   services.displayManager.gdm.enable = true;
+  services.displayManager.sessionPackages = with pkgs; [ niri ];
   services.desktopManager.gnome.enable = true;
   services.xserver.xkb = {
     layout = "jp";

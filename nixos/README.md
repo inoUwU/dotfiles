@@ -57,7 +57,7 @@ nix flake update --flake ./nixos
 
 ### セッションの切り替え
 
-PC起動後のログイン画面 (GDM) にて、ユーザーを選択した後、右下の歯車アイコン⚙️をクリックすることで **Hyprland** または **Niri** を選択できます。
+PC起動後のログイン画面 (GDM) にて、ユーザーを選択した後、右下の歯車アイコン⚙️をクリックすることで **Hyprland** または **Niri** を選択できます。Niri が表示されない場合は `services.displayManager.sessionPackages = with pkgs; [ niri ];` を設定して `nixos-rebuild switch --flake ./nixos` を実行してください。
 
 ### キーバインド (Niri / 共通)
 
