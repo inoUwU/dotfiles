@@ -13,7 +13,6 @@ return {
         "eslint",
         "denols",
         "zls",
-        "codelldb",
       },
     },
     dependencies = {
