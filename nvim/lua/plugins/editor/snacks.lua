@@ -28,7 +28,7 @@ return {
         relative_number = true,
       },
     },
-    picker = { enabled = true },
+    picker = { enabled = true, hidden = true, ignored = true },
     dashboard = {
       enabled = true,
       example = "doom",
