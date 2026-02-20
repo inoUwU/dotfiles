@@ -22,6 +22,11 @@
     vicinae = {
       url = "github:vicinaehq/vicinae";
     };
+
+    nixos-wsl = {
+      url = "github:nix-community/NixOS-WSL";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
@@ -37,6 +42,14 @@
       modules = [
         ./configuration.nix
         inputs.niri.nixosModules.niri
+      ];
+    };
+
+    nixosConfigurations.wsl = nixpkgs.lib.nixosSystem {
+      inherit system;
+      inherit specialArgs;
+      modules = [
+        ./wsl/configuration.nix
       ];
     };
   };
