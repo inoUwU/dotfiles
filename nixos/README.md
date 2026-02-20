@@ -9,7 +9,7 @@
 
 このリポジトリは NixOS のシステム設定 (`configuration.nix`) とユーザー環境 (`home-manager`) を統合管理しています。
 `flake.nix` を中心に、システム全体の設定を一括で適用できる構成になっています。
-Based on [blkedn](https://github.com/vicinaehq/blkedn).
+Based on [blkedn](https://github.com/blkflth/blkedn).
 
 ## ディレクトリ構造
 
