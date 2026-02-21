@@ -1,8 +1,8 @@
 { pkgs, ... }:
 
 {
-  home.packages = with pkgs; [
-    alacritty
-    kitty
-  ];
+  # programs.alacritty / programs.kitty install the packages and enable
+  # declarative config management via programs.*.settings.
+  programs.alacritty.enable = true;
+  programs.kitty.enable = true;
 }
