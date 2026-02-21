@@ -32,13 +32,14 @@
   programs.zsh.enable = true;
 
   environment.systemPackages = with pkgs; [
+    git
+    neovim
     vim
     wget
-    gh
     nixfmt-rfc-style
   ];
 
-  programs.nh = {
+ programs.nh = {
     enable = true;
     clean.enable = true;
     clean.extraArgs = "--keep-since 4d --keep 3";

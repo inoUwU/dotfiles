@@ -8,7 +8,9 @@
   home.homeDirectory = "/home/ino";
 
   imports = [
-    ../apps/apps.nix
+    ../apps/tui.nix
+    ../apps/zsh.nix
+    ../apps/starship.nix
   ];
 
   home.stateVersion = "24.05";
