@@ -101,5 +101,13 @@ return {
     keymap.set("n", "<leader>wl", function()
       snacks.lazygit.open()
     end, { desc = "Open lazygit" })
+
+    keymap.set("n", "<leader>t", function()
+      snacks.terminal.toggle()
+    end, { desc = "Toggle terminal" })
+
+    keymap.set("t", "<leader>t", function()
+      snacks.terminal.toggle()
+    end, { desc = "Toggle terminal" })
   end,
 }
