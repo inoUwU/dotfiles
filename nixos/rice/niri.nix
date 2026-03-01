@@ -1,11 +1,7 @@
 {
-  pkgs,
-  inputs,
-  config,
   ...
 }: {
   imports = [
-    inputs.niri.homeModules.niri
     ./niri/startup.nix
     ./niri/keybinds.nix
     ./niri/layout.nix
