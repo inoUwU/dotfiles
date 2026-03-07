@@ -37,5 +37,5 @@ programs.neovim = {
     nodejs
   ];
 };
-
+xdg.configFile."nvim".source = ../../nvim;
 }
