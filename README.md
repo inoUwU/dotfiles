@@ -76,13 +76,17 @@ chmod +x nixlink.sh
 
 #### Windows
 
-Neovim設定をWindowsにリンクする場合:
+Neovimの設定をWindowsに登録する場合（管理者権限不要）:
 
-To link Neovim config on Windows:
+To register Neovim config on Windows (no admin required):
 
 ```bat
 nvim_link_win.bat
 ```
+
+このスクリプトはユーザー環境変数 `XDG_CONFIG_HOME` をWindowsレジストリ (`HKCU\Environment`) に設定します。Neovim は `%XDG_CONFIG_HOME%\nvim` をコンフィグとして使用します。実行後はターミナルを再起動してください。
+
+This script sets the user environment variable `XDG_CONFIG_HOME` in the Windows Registry (`HKCU\Environment`). Neovim will use `%XDG_CONFIG_HOME%\nvim` as its config directory. Restart your terminal after running.
 
 ### 3. 手動でリンクが必要なファイル / Files requiring manual linking
 
