@@ -13,7 +13,7 @@ return {
     input = { enabled = true },
     words = { enabled = true },
     lazygit = { enabled = true },
-    terminal = { enabled = true },
+    terminal = { enabled = false },
     image = { enabled = true },
     scroll = { enabled = true },
     toggle = { enabled = true },
@@ -86,10 +86,6 @@ return {
       snacks.bufdelete.other()
     end, { desc = "Buffer delete other" })
 
-    keymap.set("n", "<leader>wt", function()
-      snacks.terminal.open()
-    end, { desc = "Open Terminal" })
-
     keymap.set("n", "<C-p>", function()
       picker.commands()
     end, { desc = "Show commands" })
@@ -101,13 +97,5 @@ return {
     keymap.set("n", "<leader>wl", function()
       snacks.lazygit.open()
     end, { desc = "Open lazygit" })
-
-    keymap.set("n", "<leader>t", function()
-      snacks.terminal.toggle()
-    end, { desc = "Toggle terminal" })
-
-    keymap.set("t", "<leader>t", function()
-      snacks.terminal.toggle()
-    end, { desc = "Toggle terminal" })
   end,
 }
