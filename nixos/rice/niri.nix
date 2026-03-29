@@ -1,11 +1,7 @@
 {
-  pkgs,
-  inputs,
-  config,
   ...
 }: {
   imports = [
-    inputs.niri.homeModules.niri
     ./niri/startup.nix
     ./niri/keybinds.nix
     ./niri/layout.nix
@@ -16,7 +12,6 @@
   ];
 
   programs.niri = {
-    enable = true;
     settings = {
       prefer-no-csd = true;
       screenshot-path = "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png";
