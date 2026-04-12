@@ -38,7 +38,8 @@ local function patch_vim_highlights_query()
   local removed = false
 
   for _, line in ipairs(query_lines) do
-    if line:match('^%s*"tab"%s*;?.*$') then
+    local is_tab_entry = line:match('^%s*"tab"%s*$') or line:match('^%s*"tab"%s*;.*$')
+    if is_tab_entry then
       removed = true
     else
       table.insert(patched_lines, line)
