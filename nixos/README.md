@@ -204,6 +204,9 @@ nh os switch .
 
 # Flake 入力の更新
 nix flake update
+
+# 更新が遅い場合（タイムアウト設定付き）
+nix flake update --option stalled-download-timeout 300 --option connect-timeout 60
 ```
 
 ## 使い方
