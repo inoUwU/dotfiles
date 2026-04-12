@@ -29,14 +29,24 @@ local function patch_vim_highlights_query()
     return
   end
 
-  local query = table.concat(vim.fn.readfile(query_file), "\n")
-  if query == "" or not query:find('"tab"', 1, true) then
+  local query_lines = vim.fn.readfile(query_file)
+  if #query_lines == 0 then
     return
   end
 
-  local patched_query = query:gsub('\n%s*"tab"%s*\n', "\n")
-  if patched_query ~= query then
-    vim.treesitter.query.set("vim", "highlights", patched_query)
+  local patched_lines = {}
+  local removed = false
+
+  for _, line in ipairs(query_lines) do
+    if line:match('^%s*"tab"%s*$') then
+      removed = true
+    else
+      table.insert(patched_lines, line)
+    end
+  end
+
+  if removed then
+    vim.treesitter.query.set("vim", "highlights", table.concat(patched_lines, "\n"))
   end
 end
 
