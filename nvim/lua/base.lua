@@ -22,6 +22,26 @@ vim.opt.shellquote = '"'
 vim.opt.shellxquote = ""
 vim.o.winborder = "shadow"
 
+local function patch_vim_highlights_query()
+  local query_files = vim.treesitter.query.get_files("vim", "highlights")
+  local query_file = query_files and query_files[1]
+  if type(query_file) ~= "string" or query_file == "" then
+    return
+  end
+
+  local query = table.concat(vim.fn.readfile(query_file), "\n")
+  if query == "" or not query:find('"tab"', 1, true) then
+    return
+  end
+
+  local patched_query = query:gsub('\n%s*"tab"%s*\n', "\n")
+  if patched_query ~= query then
+    vim.treesitter.query.set("vim", "highlights", patched_query)
+  end
+end
+
+pcall(patch_vim_highlights_query)
+
 -- os毎の使用するshellの設定
 if vim.fn.has("win64") == 1 then
   -- Windowsの場合
