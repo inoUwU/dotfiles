@@ -29,8 +29,8 @@ local function patch_vim_highlights_query()
     return
   end
 
-  local query_lines = vim.fn.readfile(query_file)
-  if #query_lines == 0 then
+  local ok_read, query_lines = pcall(vim.fn.readfile, query_file)
+  if not ok_read or #query_lines == 0 then
     return
   end
 
@@ -38,7 +38,7 @@ local function patch_vim_highlights_query()
   local removed = false
 
   for _, line in ipairs(query_lines) do
-    if line:match('^%s*"tab"%s*$') then
+    if line:match('^%s*"tab"%s*;?.*$') then
       removed = true
     else
       table.insert(patched_lines, line)
