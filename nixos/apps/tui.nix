@@ -1,6 +1,6 @@
 {
+  config,
   pkgs,
-  lib,
   ...
 }: {
   home.packages = with pkgs; [
@@ -29,13 +29,13 @@
   };
   programs.lazygit.enable = true;
 
-programs.neovim = {
-  enable = true;
-  extraPackages = with pkgs; [
-    go        
-    gopls     
-    nodejs
-  ];
-};
-xdg.configFile."nvim".source = ../../nvim;
+  programs.neovim = {
+    enable = true;
+    extraPackages = with pkgs; [
+      go
+      gopls
+      nodejs
+    ];
+  };
+  xdg.configFile."nvim".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/nvim";
 }
