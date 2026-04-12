@@ -37,6 +37,7 @@
     vim
     wget
     nixfmt-rfc-style
+    inputs.hermes-agent.packages.${pkgs.system}.default
   ];
 
  programs.nh = {

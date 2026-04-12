@@ -179,7 +179,15 @@ cd ~/dotfiles/nixos
 sudo nixos-rebuild switch --flake .#wsl
 ```
 
-**6. WSL の再起動（PowerShell）**
+**6. Hermes Agent の初期セットアップ（WSL 内）**
+
+```bash
+hermes setup
+```
+
+`hermes` は `wsl/configuration.nix` で導入済みです。API キーを設定すると `hermes chat` が使えます。
+
+**7. WSL の再起動（PowerShell）**
 
 ```powershell
 wsl --shutdown
