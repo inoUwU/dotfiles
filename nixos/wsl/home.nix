@@ -8,6 +8,7 @@
   home.homeDirectory = "/home/ino";
 
   imports = [
+    ../apps/direnv.nix
     ../apps/tui.nix
     ../apps/zsh.nix
     ../apps/starship.nix
