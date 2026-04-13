@@ -59,6 +59,11 @@
     proggyfonts
   ];
 
+ services.hermes-agent = {
+    enable = true;
+    addToSystemPackages = true;
+  };
+
   # State Version
   system.stateVersion = "24.11";
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
