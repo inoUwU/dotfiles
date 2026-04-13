@@ -2,6 +2,7 @@
   imports = [
     ./web.nix
     ./ghostty.nix
+    ./direnv.nix
     ./tui.nix
     ./zsh.nix
     ./tmux.nix

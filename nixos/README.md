@@ -27,7 +27,7 @@ Based on [blkedn](https://github.com/blkflth/blkedn).
   - **`noctalia.nix`**: シェル・バー (Noctalia) の設定。
   - **`vicinae.nix`**: ランチャー (Vicinae) の設定。
 - **`apps/`**: アプリケーションごとの設定。
-  - `ghostty.nix`, `zsh.nix`, `web.nix` など、カテゴリごとに分割。
+  - `direnv.nix`, `ghostty.nix`, `zsh.nix`, `web.nix` など、カテゴリごとに分割。
 
 ## 主なコンポーネント
 
