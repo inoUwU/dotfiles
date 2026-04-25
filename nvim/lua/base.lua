@@ -28,6 +28,18 @@ if vim.fn.has("win64") == 1 then
   local home = os.getenv("USERPROFILE") or "C:\\Users\\Default"
   vim.opt.shell = home .. "\\AppData\\Local\\nu\\bin\\nu.exe"
   vim.opt.shell = "nu"
+
+  vim.g.clipboard = {
+    name = "win32yank",
+    copy = {
+      ["+"] = "C:\\MyTools\\win32yank-x64\\win32yank.exe -i --crlf",
+      ["*"] = "C:\\tools\\win32yank-x64\\win32yank.exe -i --crlf",
+    },
+    paste = {
+      ["+"] = "C:\\MyTools\\win32yank-x64\\win32yank.exe -o --lf",
+      ["*"] = "C:\\MyTools\\win32yank-x64\\win32yank.exe -o --lf",
+    },
+  }
 elseif vim.fn.has("mac") == 1 then
   -- Macの場合
   vim.opt.shell = "/bin/zsh"
