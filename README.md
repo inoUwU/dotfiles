@@ -9,15 +9,15 @@ my dotfiles / 私のdotfiles設定ファイル
 This repository contains configuration files for the following applications:
 
 | アプリケーション / Application | 設定ファイル / Config File |
-|-------------------------------|---------------------------|
-| Neovim | `nvim/` |
-| tmux | `.tmux.conf` |
-| Vim | `.vimrc` |
-| Alacritty | `alacritty.toml` |
-| Ghostty | `ghostty/` |
-| Starship | `starship.toml` |
-| lazygit | `lazygit/` |
-| NixOS | `nixos/` |
+| ------------------------------ | -------------------------- |
+| Neovim                         | `nvim/`                    |
+| tmux                           | `.tmux.conf`               |
+| Vim                            | `.vimrc`                   |
+| Alacritty                      | `alacritty.toml`           |
+| Ghostty                        | `ghostty/`                 |
+| Starship                       | `starship.toml`            |
+| lazygit                        | `lazygit/`                 |
+| NixOS                          | `nixos/`                   |
 
 ## 必要条件 / Requirements
 
@@ -27,8 +27,9 @@ This repository contains configuration files for the following applications:
 
 ### Neovim
 
-- Neovim 0.9以上 / Neovim 0.9+
+- Neovim 0.12以上 / Neovim 0.9+
 - Nerd Font（MesloLGM Nerd Font推奨）
+  `cargo install tree-sitter-cli`
 
 ### その他 / Others
 
@@ -110,11 +111,11 @@ ln -sf ~/dotfiles/lazygit/config.yml ~/.config/lazygit/config.yml
 
 ### tmux
 
-| キー / Key | 説明 / Description |
-|-----------|---------------------|
-| `Ctrl-s` | プレフィックスキー / Prefix key |
+| キー / Key         | 説明 / Description                               |
+| ------------------ | ------------------------------------------------ |
+| `Ctrl-s`           | プレフィックスキー / Prefix key                  |
 | `Prefix + h/j/k/l` | ペイン移動（Vim風） / Pane navigation (Vim-like) |
-| `Alt + 矢印キー` | ペインリサイズ / Pane resize |
+| `Alt + 矢印キー`   | ペインリサイズ / Pane resize                     |
 
 > **Note**: `Ctrl-s`がターミナルのフロー制御と競合する場合は、`stty -ixon`を実行してください。
 >
@@ -122,15 +123,15 @@ ln -sf ~/dotfiles/lazygit/config.yml ~/.config/lazygit/config.yml
 
 ### Neovim
 
-| キー / Key | 説明 / Description |
-|-----------|---------------------|
-| `Space` | リーダーキー / Leader key |
+| キー / Key | 説明 / Description        |
+| ---------- | ------------------------- |
+| `Space`    | リーダーキー / Leader key |
 
 ### lazygit
 
-| キー / Key | 説明 / Description |
-|-----------|---------------------|
-| `Ctrl-c` | コミットメッセージフォーマット / Commit with format |
+| キー / Key | 説明 / Description                                  |
+| ---------- | --------------------------------------------------- |
+| `Ctrl-c`   | コミットメッセージフォーマット / Commit with format |
 
 ## カスタマイズ / Customization
 

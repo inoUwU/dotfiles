@@ -1,9 +1,9 @@
 #disable  theme = catppuccin-mocha
 window-padding-x = 0
 window-padding-y = 0
-window-padding-balance = true
+# window-padding-balance = true
 window-theme = ghostty
-background-opacity = 0.9
-background-blur-radius = 20
-macos-titlebar-style = transparent
-macos-option-as-alt = true
+background-opacity = 0.75
+background-blur-radius = 10
+# macos-titlebar-style = transparent
+# macos-option-as-alt = true

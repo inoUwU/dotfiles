@@ -7,6 +7,11 @@ return {
     })
   end,
   keys = {
-    { mode = "n", "<leader>h", "<cmd>HopWord<CR>", desc = "HopWord" },
+    {
+      "<leader>j",
+      "<cmd>HopWord<CR>",
+      mode = { "n" },
+      desc = "HopWord",
+    },
   },
 }
