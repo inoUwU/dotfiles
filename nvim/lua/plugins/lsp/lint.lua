@@ -85,7 +85,6 @@ return {
       javascriptreact = use_biome and { "biome" } or { "eslint_d" },
       json = use_biome and { "biome" } or {},
       jsonc = use_biome and { "biome" } or {},
-      python = { "pylint" },
       lua = { "luacheck" },
     }
     -- Lint を実行するタイミング（保存後・カーソル移動時）

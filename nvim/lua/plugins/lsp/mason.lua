@@ -13,6 +13,8 @@ return {
         "eslint",
         "denols",
         "zls",
+        "ruff",
+        "ty",
       },
     },
     dependencies = {
@@ -50,6 +52,9 @@ return {
         "stylua", -- lua formatter
         "eslint_d",
         "luacheck",
+        "ruff",
+        "ty",
+        "debugpy",
       },
     },
     dependencies = {

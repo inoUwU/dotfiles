@@ -29,7 +29,9 @@ return {
       yaml = { "prettierd", "prettier" },
       yml = { "prettierd", "prettier" },
       lua = { "stylua" },
-      python = { "isort", "black" },
+      -- Ruff replaces Black and isort.  It reads the project's pyproject.toml,
+      -- ruff.toml, or .ruff.toml automatically.
+      python = { "ruff_format" },
       elm = { "elm_format" },
     },
     format_on_save = {
