@@ -1,11 +1,7 @@
 return {
-  "phaazon/hop.nvim",
-  branch = "v2",
-  config = function()
-    require("hop").setup({
-      multi_windows = true,
-    })
-  end,
+  "smoka7/hop.nvim",
+  version = "*",
+  opts = {},
   keys = {
     {
       "<leader>j",
