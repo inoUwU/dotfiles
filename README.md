@@ -39,26 +39,61 @@ This repository contains configuration files for the following applications:
 
 ## インストール / Installation
 
-### 1. リポジトリのクローン / Clone the repository
+### リポジトリの取得・更新 / Clone or update the repository
 
 ```bash
 cd ~
 git clone https://github.com/inoUwU/dotfiles.git
+cd ~/dotfiles
 ```
 
-### chezmoi で配布 / Deploy with chezmoi
+すでにクローンしている場合は、既存のリポジトリのルートで `git pull --ff-only` を実行してください。
+If you already have a clone, run `git pull --ff-only` from its root instead.
 
-[chezmoi](https://www.chezmoi.io/install/) をインストールし、このリポジトリのルートで実行します。以前の Neovim・Starship 向け設定から更新する場合も、先に `init` を実行して配置先の基準をホームディレクトリに戻してください。
-Install [chezmoi](https://www.chezmoi.io/install/) and run these commands from the repository root. Run `init` again when upgrading from the earlier Neovim and Starship setup; the destination is now your home directory.
+## chezmoi
+
+chezmoi は、このリポジトリの設定ファイルを各 OS の配置先にコピーします。アプリ本体は別途インストールしてください。
+chezmoi copies configuration files from this repository to each OS's destination paths. Install the applications separately.
+
+### chezmoi のインストール / Install chezmoi
+
+| 環境 / Platform | コマンド / Command |
+| --- | --- |
+| macOS（Homebrew） | `brew install chezmoi` |
+| Fedora | `sudo dnf install chezmoi` |
+| Arch Linux | `sudo pacman -S chezmoi` |
+| Windows（Scoop） | `scoop install chezmoi` |
+
+ほかの環境や、パッケージが見つからない場合は、[chezmoi 公式のインストール手順](https://www.chezmoi.io/install/)を参照してください。
+For other platforms or if the package is unavailable, see the [official chezmoi installation guide](https://www.chezmoi.io/install/).
+
+### 初期化と差分の確認 / Initialize and preview
+
+リポジトリのルートで実行してください。以前の Neovim・Starship 向け設定から更新する場合も、配置先の基準をホームディレクトリに戻すために `init` を再実行してください。
+Run these commands from the repository root. If you are upgrading from the earlier Neovim and Starship setup, rerun `init` to reset the base destination to your home directory.
 
 ```sh
 chezmoi --source . init
 chezmoi --source . diff
-chezmoi --source . apply
 ```
 
-初回の `apply` の前に、差分を確認してください。置き換える既存ファイルはバックアップし、シンボリックリンクならリンク先ではなくリンク自体を別名に移してください。
-Review the diff before the first apply. Back up files that will be replaced. For symlinks, rename the link itself, not the file or directory it points to.
+`init` は chezmoi 自体の設定を初期化します。何も表示せずに終了する場合があります。アプリの設定ファイルは `apply` まで変更されません。
+`init` initializes chezmoi's own configuration and may exit without printing anything. It does not change application files until you run `apply`.
+
+### 適用と確認 / Apply and verify
+
+`diff` で変更を確認し、置き換える既存ファイルをバックアップしてください。旧セットアップで作成したシンボリックリンクが残っている場合は、リンク先ではなくリンク自体を別名に移してください。
+Review `diff` and back up files that will be replaced. If symlinks from the old setup remain, rename the links themselves, not the files or directories they point to.
+
+```sh
+chezmoi --source . apply
+chezmoi --source . status
+```
+
+`status` に何も表示されなければ、未適用の差分はありません。
+If `status` prints nothing, there are no pending changes.
+
+### 配置先 / Destinations
 
 | ツール / Tool | Linux | macOS | Windows |
 | --- | --- | --- | --- |
