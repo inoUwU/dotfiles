@@ -55,24 +55,11 @@ This is a personal dotfiles repository containing configuration files for develo
 - Allows unfree packages by default
 - System state version: 24.11
 
-## Installation Scripts
+## Installation
 
-### Linux/macOS: `setup.sh`
+Use `chezmoi --source . init`, `chezmoi --source . diff`, and `chezmoi --source . apply` from the repository root. The `.chezmoiroot` file isolates deployment metadata in `home/`. `home/.chezmoiexternal.toml` maps the repository's source files to application-specific destinations under the user's home directory.
 
-Creates symlinks for:
-- `nvim/` → `~/.config/nvim`
-- `starship.toml` → `~/.config/starship.toml`
-- `ghostty/` → `~/.config/ghostty`
-
-Automatically backs up existing files with timestamp suffix.
-
-### NixOS: `nixlink.sh`
-
-Alternative setup script for NixOS environments.
-
-### Windows: `nvim_link_win.bat`
-
-Links Neovim configuration to Windows AppData location.
+NixOS remains separate. `nixlink.sh` is the NixOS link script, not part of chezmoi.
 
 ## Formatting/Linting
 
@@ -86,4 +73,3 @@ Links Neovim configuration to Windows AppData location.
 - **Cross-platform considerations**: Different shell configurations per OS (see `nvim/lua/base.lua`)
 - **NixOS rebuilds**: Use `sudo nixos-rebuild switch --flake .#nixos` from `nixos/` directory
 - **Lazy.nvim**: Plugin updates disabled by default (`checker.enabled = false`)
-- **Manual linking required** for tmux, vim, Alacritty, and lazygit configs (not handled by setup scripts)

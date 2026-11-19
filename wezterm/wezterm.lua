@@ -10,7 +10,7 @@ config.cursor_thickness = "2pt"
 config.status_update_interval = 1000
 config.scrollback_lines = 3500
 config.animation_fps = 144
-config.window_background_opacity = 0.80
+config.window_background_opacity = 0.95
 config.hide_tab_bar_if_only_one_tab = true
 
 wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)

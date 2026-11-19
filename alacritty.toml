@@ -2,10 +2,6 @@
 family = "MesloLGM Nerd Font"
 style = "Regular"
 
-[terminal.shell]
-#args = ["tmux a -t default || tmux new -s default"]
-program = "/Windows/System32/wsl.exe ~ -d Ubuntu-24.04"
-
 [window]
 opacity = 0.80
 blur = true

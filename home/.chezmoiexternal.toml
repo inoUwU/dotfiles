@@ -1,0 +1,70 @@
+{{- define "localFile" -}}
+  {{- $home := print .home "/" -}}
+  {{- $target := clean (replace "\\" "/" .target) -}}
+  {{- $prefix := hasPrefix $home $target -}}
+  {{- if .windows -}}
+    {{- $prefix = hasPrefix (lower $home) (lower $target) -}}
+  {{- end -}}
+  {{- if not $prefix -}}
+    {{- fail (printf "configuration destination is outside the home directory: %s" $target) -}}
+  {{- end -}}
+  {{- $source := joinPath .root .source | replace "\\" "/" -}}
+  {{- $path := urlquery $source | replace "%2F" "/" | replace "+" "%20" -}}
+  {{- if and .windows (regexMatch `^[A-Za-z]:/` $source) -}}
+    {{- /* Keep the drive letter in the URL path, not its authority. */ -}}
+    {{- $path = print "//%3F/" $path -}}
+  {{- end }}
+[{{ substr (len $home) (len $target) $target | quote }}]
+type = "file"
+url = {{ print "file://" $path | quote }}
+{{ end -}}
+
+{{- $home := .chezmoi.homeDir -}}
+{{- if ne .chezmoi.destDir $home -}}
+  {{- fail "dotfiles must be applied relative to the home directory; run chezmoi --source . init" -}}
+{{- end -}}
+{{- $root := .chezmoi.workingTree -}}
+{{- $windows := eq .chezmoi.os "windows" -}}
+{{- $xdg := env "XDG_CONFIG_HOME" -}}
+{{- $config := $xdg | default (joinPath $home ".config") -}}
+{{- $nvim := $config -}}
+{{- $alacritty := joinPath $config "alacritty" "alacritty.toml" -}}
+{{- $lazygit := joinPath $config "lazygit" -}}
+{{- $vim := joinPath $home ".vimrc" -}}
+{{- if $windows -}}
+  {{- $local := env "LOCALAPPDATA" | default (joinPath $home "AppData" "Local") -}}
+  {{- $roaming := env "APPDATA" | default (joinPath $home "AppData" "Roaming") -}}
+  {{- $nvim = $xdg | default $local -}}
+  {{- $alacritty = joinPath $roaming "alacritty" "alacritty.toml" -}}
+  {{- $lazygit = joinPath ($xdg | default $local) "lazygit" -}}
+  {{- $roamingGit := joinPath $roaming "lazygit" -}}
+  {{- if and (not (stat (joinPath $lazygit "config.yml"))) (stat (joinPath $roamingGit "config.yml")) -}}
+    {{- $lazygit = $roamingGit -}}
+  {{- end -}}
+  {{- $vim = joinPath $home "_vimrc" -}}
+{{- else if and (eq .chezmoi.os "darwin") (not $xdg) -}}
+  {{- $lazygit = joinPath $home "Library" "Application Support" "lazygit" -}}
+{{- end -}}
+{{- $nvim = joinPath $nvim (env "NVIM_APPNAME" | default "nvim") -}}
+{{- $wezterm := env "WEZTERM_CONFIG_FILE" | default (joinPath $config "wezterm" "wezterm.lua") -}}
+{{- $starship := env "STARSHIP_CONFIG" | default (joinPath $home ".config" "starship.toml") -}}
+{{- $lazygit = env "CONFIG_DIR" | default $lazygit -}}
+{{- $files := dict
+    ".vimrc" $vim
+    "alacritty.toml" $alacritty
+    "lazygit/config.yml" (joinPath $lazygit "config.yml")
+    "starship.toml" $starship
+    "wezterm/wezterm.lua" $wezterm
+    "wezterm/keybinds.lua" (joinPath (dir (replace "\\" "/" $wezterm)) "keybinds.lua") -}}
+{{- if not $windows -}}
+  {{- $_ := set $files ".tmux.conf" (joinPath $home ".tmux.conf") -}}
+  {{- $_ := set $files "ghostty/config" (joinPath $config "ghostty" "config") -}}
+{{- end -}}
+{{- range (output "git" "-C" $root "ls-files" "-z" "--cached" "--others" "--exclude-standard" "--deduplicate" "--" "nvim/") | splitList "\x00" -}}
+  {{- if and . (ne . "nvim/AGENTS.md") (stat (joinPath $root .)) -}}
+    {{- $_ := set $files . (joinPath $nvim (trimPrefix "nvim/" .)) -}}
+  {{- end -}}
+{{- end -}}
+{{- range $source, $target := $files -}}
+  {{- template "localFile" (dict "home" $home "root" $root "source" $source "target" $target "windows" $windows) -}}
+{{- end -}}

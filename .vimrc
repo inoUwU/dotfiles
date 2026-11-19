@@ -1,3 +1,5 @@
+set nocompatible
+filetype plugin indent on
 packadd vim-jetpack
 call jetpack#begin()
 Jetpack 'tani/vim-jetpack', {'opt': 1} "bootstrap
@@ -22,7 +24,6 @@ endif
 
 syntax on
 colorscheme default
-set nocompatible
 set encoding=UTF-8
 set number
 set relativenumber
