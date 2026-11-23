@@ -31,9 +31,9 @@ url = {{ print "file://" $path | quote }}
 {{- $alacritty := joinPath $config "alacritty" "alacritty.toml" -}}
 {{- $lazygit := joinPath $config "lazygit" -}}
 {{- $vim := joinPath $home ".vimrc" -}}
+{{- $roaming := env "APPDATA" | default (joinPath $home "AppData" "Roaming") -}}
 {{- if $windows -}}
   {{- $local := env "LOCALAPPDATA" | default (joinPath $home "AppData" "Local") -}}
-  {{- $roaming := env "APPDATA" | default (joinPath $home "AppData" "Roaming") -}}
   {{- $nvim = $xdg | default $local -}}
   {{- $alacritty = joinPath $roaming "alacritty" "alacritty.toml" -}}
   {{- $lazygit = joinPath ($xdg | default $local) "lazygit" -}}
@@ -56,7 +56,9 @@ url = {{ print "file://" $path | quote }}
     "starship.toml" $starship
     "wezterm/wezterm.lua" $wezterm
     "wezterm/keybinds.lua" (joinPath (dir (replace "\\" "/" $wezterm)) "keybinds.lua") -}}
-{{- if not $windows -}}
+{{- if $windows -}}
+  {{- $_ := set $files "nushell/repos.nu" (joinPath ($xdg | default $roaming) "nushell" "autoload" "repos.nu") -}}
+{{- else -}}
   {{- $_ := set $files ".tmux.conf" (joinPath $home ".tmux.conf") -}}
   {{- $_ := set $files "ghostty/config" (joinPath $config "ghostty" "config") -}}
 {{- end -}}

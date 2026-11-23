@@ -18,6 +18,7 @@ This repository contains configuration files for the following applications:
 | Starship                       | `starship.toml`            |
 | WezTerm                        | `wezterm/`                 |
 | lazygit                        | `lazygit/`                 |
+| Nushell                        | `nushell/repos.nu`          |
 | NixOS                          | `nixos/`                   |
 
 ## 必要条件 / Requirements
@@ -103,6 +104,7 @@ If `status` prints nothing, there are no pending changes.
 | Alacritty | `~/.config/alacritty/` | `~/.config/alacritty/` | `%APPDATA%\alacritty\` |
 | lazygit | `~/.config/lazygit/` | `~/Library/Application Support/lazygit/` | `%LOCALAPPDATA%\lazygit\`、既存の設定があれば `%APPDATA%\lazygit\` も使用 |
 | WezTerm | `~/.config/wezterm/` | `~/.config/wezterm/` | `~\.config\wezterm\` |
+| Nushell (`repos`) | 配布しません / Not deployed | 配布しません / Not deployed | `%APPDATA%\nushell\autoload\repos.nu` |
 | Ghostty | `~/.config/ghostty/` | `~/.config/ghostty/` | 配布しません / Not deployed |
 | tmux | `~/.tmux.conf` | `~/.tmux.conf` | 配布しません / Not deployed |
 
@@ -111,6 +113,9 @@ The table lists default destinations. Supported environment overrides can select
 
 編集はリポジトリ内の元ファイルで行ってください。chezmoi は適用のたびに元ファイルを読み込みます。Neovim が `lazy-lock.json` を更新した場合は、配置先のファイルをリポジトリにコピーして取り込みます。
 Edit the source files in this repository. chezmoi reads them on every apply. When Neovim updates `lazy-lock.json`, copy the deployed file back into the repository to keep the update.
+
+Windows では、`ghq` と `fzf` をインストールしてから、新しい Nushell で `repos` を実行すると、リポジトリを選んで移動できます。以前 `config.nu` に `repos` を定義していた場合は、その定義だけ削除してください。`ghq.root`（探索と新規クローンの起点）は端末側の Git 設定で管理します。
+On Windows, install `ghq` and `fzf`, then run `repos` in a new Nushell session to select and open a repository directory. If `config.nu` already defines `repos`, remove only that definition. Keep `ghq.root`, the directory used to find and clone repositories, in your machine's Git configuration.
 
 Alacritty は各 OS の既定のシェルを起動します。Windows で WSL を起動する場合は、`alacritty -e wsl.exe ~` を使えます。
 Alacritty uses the OS default shell. On Windows, use `alacritty -e wsl.exe ~` to start WSL instead.
