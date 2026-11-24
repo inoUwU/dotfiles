@@ -18,7 +18,7 @@ This repository contains configuration files for the following applications:
 | Starship                       | `starship.toml`            |
 | WezTerm                        | `wezterm/`                 |
 | lazygit                        | `lazygit/`                 |
-| Nushell                        | `nushell/repos.nu`          |
+| Nushell                        | `nushell/`                  |
 | NixOS                          | `nixos/`                   |
 
 ## 必要条件 / Requirements
@@ -104,7 +104,7 @@ If `status` prints nothing, there are no pending changes.
 | Alacritty | `~/.config/alacritty/` | `~/.config/alacritty/` | `%APPDATA%\alacritty\` |
 | lazygit | `~/.config/lazygit/` | `~/Library/Application Support/lazygit/` | `%LOCALAPPDATA%\lazygit\`、既存の設定があれば `%APPDATA%\lazygit\` も使用 |
 | WezTerm | `~/.config/wezterm/` | `~/.config/wezterm/` | `~\.config\wezterm\` |
-| Nushell (`repos`) | 配布しません / Not deployed | 配布しません / Not deployed | `%APPDATA%\nushell\autoload\repos.nu` |
+| Nushell (`repos`, `lg`) | 配布しません / Not deployed | 配布しません / Not deployed | `%APPDATA%\nushell\autoload\` (`repos.nu`, `aliases.nu`) |
 | Ghostty | `~/.config/ghostty/` | `~/.config/ghostty/` | 配布しません / Not deployed |
 | tmux | `~/.tmux.conf` | `~/.tmux.conf` | 配布しません / Not deployed |
 

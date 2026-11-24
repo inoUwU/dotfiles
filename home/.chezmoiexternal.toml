@@ -58,6 +58,7 @@ url = {{ print "file://" $path | quote }}
     "wezterm/keybinds.lua" (joinPath (dir (replace "\\" "/" $wezterm)) "keybinds.lua") -}}
 {{- if $windows -}}
   {{- $_ := set $files "nushell/repos.nu" (joinPath ($xdg | default $roaming) "nushell" "autoload" "repos.nu") -}}
+  {{- $_ := set $files "nushell/aliases.nu" (joinPath ($xdg | default $roaming) "nushell" "autoload" "aliases.nu") -}}
 {{- else -}}
   {{- $_ := set $files ".tmux.conf" (joinPath $home ".tmux.conf") -}}
   {{- $_ := set $files "ghostty/config" (joinPath $config "ghostty" "config") -}}
