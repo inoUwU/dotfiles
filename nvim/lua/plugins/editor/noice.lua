@@ -27,6 +27,13 @@ return {
     routes = {
       {
         filter = {
+          event = "msg_show",
+          find = "blink/cmp/completion/windows/ghost_text/.*Invalid 'col': out of range",
+        },
+        opts = { skip = true },
+      },
+      {
+        filter = {
           event = "notify",
           any = {
             { find = "No parser" },

@@ -8,6 +8,11 @@ return {
   end,
   keys = {
     {
+      "<leader>x",
+      function() end,
+      desc = "Diagnostics",
+    },
+    {
       "<leader>?",
       function()
         require("which-key").show({ global = false })

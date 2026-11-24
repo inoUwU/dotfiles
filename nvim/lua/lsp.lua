@@ -13,7 +13,17 @@ vim.api.nvim_create_autocmd("LspAttach", {
     keymap.set("n", "<leader>lr", vim.lsp.buf.rename, opts)
 
     opts.desc = "Show line diagnostics"
-    keymap.set("n", "<leader>ll", vim.diagnostic.open_float, opts)
+    keymap.set("n", "<leader>xx", vim.diagnostic.open_float, opts)
+
+    opts.desc = "Next diagnostic"
+    keymap.set("n", "<leader>xj", function()
+      vim.diagnostic.jump({ count = 1, float = true })
+    end, opts)
+
+    opts.desc = "Previous diagnostic"
+    keymap.set("n", "<leader>xk", function()
+      vim.diagnostic.jump({ count = -1, float = true })
+    end, opts)
 
     local signs = { Error = "", Warn = "", Info = "", Hint = "" }
     for type, icon in pairs(signs) do

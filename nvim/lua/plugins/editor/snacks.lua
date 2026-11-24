@@ -4,7 +4,7 @@ return {
   lazy = false,
   opts = {
     indent = { enabled = true },
-    explorer = { enabled = true },
+    -- explorer = { enabled = true },
     animate = { enabled = true },
     bigfile = { enabled = true },
     bufdelete = { enabled = true },
@@ -70,9 +70,9 @@ return {
       picker.todo_comments()
     end, { desc = "Find Todos" })
 
-    keymap.set("n", "<leader>e", function()
-      picker.explorer()
-    end, { desc = "explorer" })
+    -- keymap.set("n", "<leader>e", function()
+    --   picker.explorer()
+    -- end, { desc = "explorer" })
 
     keymap.set("n", "<leader>fb", function()
       picker.buffers()
