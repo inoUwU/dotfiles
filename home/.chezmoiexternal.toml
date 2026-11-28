@@ -63,6 +63,9 @@ url = {{ print "file://" $path | quote }}
   {{- $_ := set $files ".tmux.conf" (joinPath $home ".tmux.conf") -}}
   {{- $_ := set $files "ghostty/config" (joinPath $config "ghostty" "config") -}}
 {{- end -}}
+{{- if eq .chezmoi.os "darwin" -}}
+  {{- $_ := set $files "mise/macos.toml" (joinPath (env "MISE_CONFIG_DIR" | default (joinPath $config "mise")) "conf.d" "40-macos.toml") -}}
+{{- end -}}
 {{- range (output "git" "-C" $root "ls-files" "-z" "--cached" "--others" "--exclude-standard" "--deduplicate" "--" "nvim/") | splitList "\x00" -}}
   {{- if and . (ne . "nvim/AGENTS.md") (stat (joinPath $root .)) -}}
     {{- $_ := set $files . (joinPath $nvim (trimPrefix "nvim/" .)) -}}

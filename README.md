@@ -65,6 +65,19 @@ chezmoi copies configuration files from this repository to each OS's destination
 | Arch Linux | `sudo pacman -S chezmoi` |
 | Windows（Scoop） | `scoop install chezmoi` |
 
+macOS ではリポジトリのルートで次を実行します。`navi` のビルドには Rust/Cargo が必要です。
+On macOS, run the following from the repository root. Building `navi` requires Rust/Cargo.
+
+```sh
+mise exec chezmoi@2.74.2 -- chezmoi --source . init
+mise exec chezmoi@2.74.2 -- chezmoi --source . diff
+mise exec chezmoi@2.74.2 -- chezmoi --source . apply
+MISE_CARGO_BINSTALL=false mise install
+```
+
+`mise/macos.toml` は macOS のみ `~/.config/mise/conf.d/40-macos.toml` に配置されます。`config.toml` は置き換えません。同じツールが両方にある場合は `mise ls --current` で有効な指定を確認してください。zsh では `~/.zshrc` に `eval "$(mise activate zsh)"` が必要です。
+The macOS tool list is deployed alongside your existing mise config. Check overlapping pins with `mise ls --current` and enable mise in zsh as shown above.
+
 ほかの環境や、パッケージが見つからない場合は、[chezmoi 公式のインストール手順](https://www.chezmoi.io/install/)を参照してください。
 For other platforms or if the package is unavailable, see the [official chezmoi installation guide](https://www.chezmoi.io/install/).
 
